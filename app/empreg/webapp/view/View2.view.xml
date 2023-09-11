@@ -11,7 +11,7 @@
     <Page
         id="page"
         title="Extension Team"
-        showNavButton="true"
+        showNavButton="false"
         navButtonPress="onNavBack"
     >
         <content>

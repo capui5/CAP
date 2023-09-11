@@ -125,8 +125,8 @@
             },
             "routes": [
                 {
-                    "name": "RouteView1",
-                    "pattern": ":?query:",
+                    "name": "View1",
+                    "pattern": "",
                     "target": [
                         "TargetView1"
                     ]
@@ -181,13 +181,6 @@
                     ]
                 },
                 {
-                    "name": "View7",
-                    "pattern": "emp-detail/{SEmployeeId}",
-                    "target": [
-                        "View7"
-                    ]
-                },
-                {
                     "name": "Dataanalyticslist",
                     "pattern": "Dataanalytics-list",
                     "target": [
@@ -195,24 +188,10 @@
                     ]
                 },
                 {
-                    "name": "View8",
-                    "pattern": "emp-detail/{SEmployeeId}",
-                    "target": [
-                        "View8"
-                    ]
-                },
-                {
                     "name": "AllEmployees",
                     "pattern": "AllEmployees",
                     "target": [
                         "AllEmployees"
-                    ]
-                },
-                {
-                    "name": "View9",
-                    "pattern": "emp-detail/{SEmployeeId}",
-                    "target": [
-                        "View9"
                     ]
                 }
             ],
@@ -281,29 +260,13 @@
                     "viewName": "Integrationlist",
                     "viewLevel": 7
                 },
-                "View7": {
-                    "viewType": "XML",
-                    "transition": "slide",
-                    "clearControlAggregation": false,
-                    "viewId": "View7",
-                    "viewName": "View7",
-                    "viewLevel": 8
-                },
                 "Dataanalyticslist": {
                     "viewType": "XML",
                     "transition": "slide",
                     "clearControlAggregation": false,
                     "viewId": "Dataanalyticslist",
                     "viewName": "Dataanalyticslist",
-                    "viewLevel": 9
-                },
-                "View8": {
-                    "viewType": "XML",
-                    "transition": "slide",
-                    "clearControlAggregation": false,
-                    "viewId": "View8",
-                    "viewName": "View8",
-                    "viewLevel": 10
+                    "viewLevel": 8
                 },
                 "AllEmployees": {
                     "viewType": "XML",
@@ -311,15 +274,7 @@
                     "clearControlAggregation": false,
                     "viewId": "AllEmployees",
                     "viewName": "AllEmployees",
-                    "viewLevel": 11
-                },
-                "View9": {
-                    "viewType": "XML",
-                    "transition": "slide",
-                    "clearControlAggregation": false,
-                    "viewId": "View9",
-                    "viewName": "View9",
-                    "viewLevel": 12
+                    "viewLevel": 9
                 }
             }
         },

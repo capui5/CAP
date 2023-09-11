@@ -11,10 +11,11 @@
                 alignItems="Start"
                 wrap="Wrap">
                  <GenericTile
-                    class="center sapUiTinyMarginBegin sapUiMediumMarginTop tileLayout myCustomTile"
+                    class="center sapUiTinyMarginBegin sapUiMediumMarginTop  myCustomTile"
                     press=".onToPage5"
                     type="navigation"
-                    frameType="TwoByHalf">
+                     frameType="TwoByHalf"
+                    >
                     <TileContent>
                         <content>
                             <VBox class="centeredHeader">
@@ -63,10 +64,10 @@
                 <GenericTile
                     class="center sapUiTinyMarginBegin sapUiMediumMarginTop tileLayout myCustomTile"
                     press=".onToPage4"
-                    frameType="TwoByHalf">
+                     frameType="TwoByHalf">
                     <TileContent>
                         <content>
-                            <VBox class="centeredHeader">
+                           <VBox class="centeredHeader" style="display: flex; align-items: center;">
                                 <Title
                                     text="Data Analytics Team"
                                     level="H2"

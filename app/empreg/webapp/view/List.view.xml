@@ -14,27 +14,10 @@
         class="sapUiResponsiveContentPadding customFont"
     >
         <content>
-            <!-- <List
+            <List
                 id="employeelist"
                 mode="SingleSelectMaster"
                 items="{
-        path: 'MainModel>/Employees',
-        filters: [
-            {
-                path: 'reportingPerson',
-                operator: 'EQ', 
-                value1: 'Harish' 
-            },
-            
-        ]
-    }"
-                selectionChange="onListItemPress"
-                class="customFont"
-            > -->
-            <List
-    id="employeelist"
-    mode="SingleSelectMaster"
-    items="{
         path: 'MainModel>/Employees',
         filters: [
             {
@@ -54,10 +37,9 @@
             }
         ]
     }"
-    selectionChange="onListItemPress"
-    class="customFont"
->
-
+               selectionChange="onListItemPress"
+                class="customFont"
+            >
                 <headerToolbar>
                     <OverflowToolbar>
                         <content>
@@ -89,14 +71,14 @@
                 </headerToolbar>
 
                 <items>
-        <StandardListItem
-            title="{MainModel>fname} {MainModel>lname}"
-            description="{MainModel>desig}"
-            info="{= 'On Leave: ' + ${MainModel>leave}}"
-            class="customListItem"
-            infoState="{= ${MainModel>leave} === 'No' ? 'Success' : 'Warning'}"
-        />
-    </items>
+                    <StandardListItem
+                        title="{MainModel>fname} {MainModel>lname}"
+                        description="{MainModel>desig}"
+                        info="{= 'On Leave: ' + ${MainModel>leave}}"
+                        class="customListItem"
+                        infoState="{= ${MainModel>leave} === 'No' ? 'Success' : 'Warning'}"
+                    />
+                </items>
             </List>
         </content>
     </Page>

@@ -39,6 +39,7 @@
                     <Input
                         id="Id"
                         value="{MainModel>ID}"
+                        visible="false"
                     />
 
                     <!-- First Name -->
@@ -98,22 +99,22 @@
                     />
                     <Select
                         id="country"
-                        selectedKey="{MainModel>country/name}"
+                        selectedKey="{MainModel>country_ID}"
                     >
-                        <items>
-                            <core:Item
-                                text="Netherlands"
-                                key="Netherlands"
-                            />
-                            <core:Item
-                                text="India"
-                                key="India"
-                            />
-                            <core:Item
-                                text="Singapore"
-                                key="Singapore"
-                            />
-                        </items>
+                        <core:Item
+                            key="1"
+                            text="Netherlands"
+                        />
+
+                        <core:Item
+                            key="2"
+                            text="India"
+                        />
+
+                        <core:Item
+                            key="3"
+                            text="Singapore"
+                        />
                     </Select>
 
                     <!-- State -->
@@ -157,34 +158,36 @@
                         text="Reporting Person"
                         required="true"
                     />
-                     <Input
+                    <Input
                         id="reportingPerson"
                         value="{MainModel>reportingPerson}"
                     />
-                    <Label
-                        text="Phone Number"
-                        required="true"
-                    />
+                    <Label text="Phone Number" />
                     <Input
                         id="phonenumber"
                         value="{MainModel>Phno}"
                     />
-                   
+
                     <!-- Gender -->
                     <Label
                         text="Gender"
                         required="true"
                     />
-                    <RadioButtonGroup
-                        id="genderRadioGroup"
-                        columns="2"
-                        selectedIndex="{MainModel>gender}"
+                   <Select
+                        id="genderDropdown"
+                      selectedKey="{path:'MainModel>gender', formatter:'.formatter.selectgen'}"
                     >
-                        <buttons>
-                            <RadioButton text="Male" />
-                            <RadioButton text="Female" />
-                        </buttons>
-                    </RadioButtonGroup>
+                        <items>
+                            <core:Item
+                                text="Male"
+                                key= "Male"
+                            />
+                            <core:Item
+                                text="Female"
+                                key="Female"
+                            />
+                        </items>
+                    </Select>
 
                     <!-- Leave -->
                     <Label
@@ -192,16 +195,18 @@
                         required="true"
                     />
 
-                    <Select id="leave">
+                    <Select
+                        id="leave"
+                        selectedKey="{path:'MainModel>leave', formatter:'.formatter.selecFn'}"
+                    >
                         <items>
                             <core:Item
                                 text="ON LEAVE"
-                                key="true"
+                                key= "0"
                             />
-
                             <core:Item
                                 text="WORKING"
-                                key="false"
+                                key="1"
                             />
                         </items>
                     </Select>

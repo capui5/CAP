@@ -127,10 +127,11 @@
 .imageText {
     position: absolute;
     top: 260px;
-    left: 120px; 
+    left: 95px; 
     font-size: 16px;
     font-weight: bold;
     color: #333;
+    
 }
 
 .customForm {
@@ -162,31 +163,30 @@
     font-weight: bold;
     font-size: 16px;
 }
-.myCustomTile {
+
+  .myCustomTile {
     background-color: #f0f0f0; 
-    border: 1px solid #CCCCCC; 
-    text-align: center;
-    padding: 0px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); 
-  }
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  
+    padding-bottom: 100px;
+}
 
 .largerTitle {
     font-size: larger ;
 }
 .centeredHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center; 
+    padding:0px; 
 }
-
-  .centeredHeaderText {
-    font-size: 20px; 
+.centeredHeaderText {
+    font-size: 18px; 
     font-weight: bold; 
     color: #333; 
-  }
-  .centeredHeaderText {
-    font-size: 20px; 
-    font-weight: bold; 
-    color: #333; 
-  }
+}
   .sapMBarTitleAlignAuto .sapMBarPH{
     justify-content: center;
     padding: 20px;

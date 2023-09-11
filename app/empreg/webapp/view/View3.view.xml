@@ -8,7 +8,7 @@
    <Page
         id="page"
         title="Integration Team"
-        showNavButton="true"
+        showNavButton="false"
         navButtonPress="onNavBack"
     >
         <content>

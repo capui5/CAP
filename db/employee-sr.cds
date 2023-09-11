@@ -2,7 +2,7 @@ namespace my.registration;
 
 entity Employees {
         @title: 'Employee ID'
-    key ID         : Integer;
+    key ID         : Integer @cds.persistence.identity;
 
         @title: 'First Name'
         fname      : String(100);
@@ -53,7 +53,7 @@ entity Employees {
         reportingPerson : String;
 
         @title : 'Phone Number'
-        Phno: Integer;
+        Phno: String;
 }
 
 entity Department {
@@ -103,9 +103,3 @@ entity Country {
 
 }
 
-// entity OnLeave {
-//     @title: 'OnLeave'
-//     name : Boolean;
-//     employees : Association to many Employees
-//                     on employees.onleave = $self;
-// }

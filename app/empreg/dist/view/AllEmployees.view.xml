@@ -52,12 +52,11 @@
                 </headerToolbar>
 
                 <items>
-                   <StandardListItem
+                    <StandardListItem
                         title="{MainModel>fname} {MainModel>lname}"
                         description="{MainModel>desig}"
-                        info="{= 'On Leave: ' + ${MainModel>leave}}"
-                        class="customListItem"
-                        infoState="{= ${MainModel>leave} === 'No' ? 'Success' : 'Warning'}"
+                        info="{MainModel>leave}"
+               
                     />
                 </items>
             </List>

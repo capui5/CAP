@@ -10,8 +10,26 @@
                 justifyContent="Center"
                 alignItems="Start"
                 wrap="Wrap">
+                 <GenericTile
+                    class="center sapUiTinyMarginBegin sapUiMediumMarginTop  myCustomTile"
+                    press=".onToPage5"
+                    type="navigation"
+                     frameType="TwoByHalf"
+                    >
+                    <TileContent>
+                        <content>
+                            <VBox class="centeredHeader">
+                                <Title
+                                    text="All Employees"
+                                    level="H2"
+                                    class="centeredHeaderText"/>
+                                <Text text="" />
+                            </VBox>
+                        </content>
+                    </TileContent>
+                </GenericTile>
                 <GenericTile
-                    class="center sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
+                    class="center sapUiTinyMarginBegin sapUiMediumMarginTop tileLayout myCustomTile"
                     press=".onToPage2"
                     type="navigation"
                     frameType="TwoByHalf">
@@ -19,7 +37,7 @@
                         <content>
                             <VBox class="centeredHeader">
                                 <Title
-                                    text="NETHERLANDS"
+                                    text="Extension Team"
                                     level="H2"
                                     class="centeredHeaderText"/>
                                 <Text text="" />
@@ -28,14 +46,14 @@
                     </TileContent>
                 </GenericTile>
                 <GenericTile
-                    class="center sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
+                    class="center sapUiTinyMarginBegin sapUiMediumMarginTop tileLayout myCustomTile"
                     press=".onToPage3"
                     frameType="TwoByHalf">
                     <TileContent>
                         <content>
                             <VBox class="centeredHeader">
                                 <Title
-                                    text="INDIA"
+                                    text="Integration Team"
                                     level="H2"
                                     class="centeredHeaderText"/>
                                 <Text text="" />
@@ -44,14 +62,14 @@
                     </TileContent>
                 </GenericTile>
                 <GenericTile
-                    class="center sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
+                    class="center sapUiTinyMarginBegin sapUiMediumMarginTop tileLayout myCustomTile"
                     press=".onToPage4"
-                    frameType="TwoByHalf">
+                     frameType="TwoByHalf">
                     <TileContent>
                         <content>
-                            <VBox class="centeredHeader">
+                           <VBox class="centeredHeader" style="display: flex; align-items: center;">
                                 <Title
-                                    text="SINGAPORE"
+                                    text="Data Analytics Team"
                                     level="H2"
                                     class="centeredHeaderText"/>
                                 <Text text="" />

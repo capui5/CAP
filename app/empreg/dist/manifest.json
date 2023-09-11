@@ -84,7 +84,7 @@
                     "bundleName": "empreg.i18n.i18n"
                 }
             },
-            "": {
+            "MainModel": {
                 "dataSource": "mainService",
                 "preload": true,
                 "settings": {
@@ -125,29 +125,29 @@
             },
             "routes": [
                 {
-                    "name": "RouteView1",
-                    "pattern": ":?query:",
+                    "name": "View1",
+                    "pattern": "",
                     "target": [
                         "TargetView1"
                     ]
                 },
                 {
                     "name": "View2",
-                    "pattern": "Netherlands-Employees",
+                    "pattern": "Extension-Team",
                     "target": [
                         "View2"
                     ]
                 },
                 {
                     "name": "View3",
-                    "pattern": "India-Employees",
+                    "pattern": "Integration-Team",
                     "target": [
                         "View3"
                     ]
                 },
                 {
                     "name": "View4",
-                    "pattern": "Singapore-Employees",
+                    "pattern": "Data-Analytics-Team",
                     "target": [
                         "View4"
                     ]
@@ -160,17 +160,38 @@
                     ]
                 },
                 {
+                    "name": "List",
+                    "pattern": "Extension-List",
+                    "target": [
+                        "List"
+                    ]
+                },
+                {
                     "name": "View6",
-                    "pattern": "View6",
+                    "pattern": "emp-detail/{SEmployeeId}",
                     "target": [
                         "View6"
                     ]
                 },
                 {
-                    "name": "View7",
-                    "pattern": "View7",
+                    "name": "Integrationlist",
+                    "pattern": "Integration-List",
                     "target": [
-                        "View7"
+                        "Integrationlist"
+                    ]
+                },
+                {
+                    "name": "Dataanalyticslist",
+                    "pattern": "Dataanalytics-list",
+                    "target": [
+                        "Dataanalyticslist"
+                    ]
+                },
+                {
+                    "name": "AllEmployees",
+                    "pattern": "AllEmployees",
+                    "target": [
+                        "AllEmployees"
                     ]
                 }
             ],
@@ -215,21 +236,45 @@
                     "viewName": "View5",
                     "viewLevel": 4
                 },
+                "List": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "List",
+                    "viewName": "List",
+                    "viewLevel": 5
+                },
                 "View6": {
                     "viewType": "XML",
                     "transition": "slide",
                     "clearControlAggregation": false,
                     "viewId": "View6",
                     "viewName": "View6",
-                    "viewLevel": 5
+                    "viewLevel": 6
                 },
-                "View7": {
+                "Integrationlist": {
                     "viewType": "XML",
                     "transition": "slide",
                     "clearControlAggregation": false,
-                    "viewId": "View7",
-                    "viewName": "View7",
-                    "viewLevel": 6
+                    "viewId": "Integrationlist",
+                    "viewName": "Integrationlist",
+                    "viewLevel": 7
+                },
+                "Dataanalyticslist": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "Dataanalyticslist",
+                    "viewName": "Dataanalyticslist",
+                    "viewLevel": 8
+                },
+                "AllEmployees": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "AllEmployees",
+                    "viewName": "AllEmployees",
+                    "viewLevel": 9
                 }
             }
         },

@@ -9,7 +9,7 @@
     <Page
         id="createButton"
         title="Add New Employee"
-          showNavButton="true"
+          showNavButton="false"
         navButtonPress="onNavBack"
         class="sapUiResponsiveContentPadding "
     >
