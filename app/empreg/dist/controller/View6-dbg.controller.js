@@ -4,16 +4,16 @@ sap.ui.define(
     "sap/m/library",
     "sap/m/MessageBox",
     "sap/ui/core/Fragment",
-    "../model/formatter"
+    "../model/formatter",
   ],
-  function (Controller, mobileLibrary, MessageBox, Fragment,formatter) {
+  function (Controller, mobileLibrary, MessageBox, Fragment, formatter) {
     "use strict";
     var URLHelper = mobileLibrary.URLHelper;
+  
 
     return Controller.extend("empreg.controller.View6", {
-      formatter:formatter,
+      formatter: formatter,
       onInit: function () {
-
         this.oList = this.byId("employeelist");
         this.oDataModel = this.getOwnerComponent().getModel();
         this.getView().setModel(this.oDataModel);
@@ -68,15 +68,12 @@ sap.ui.define(
                         "Employee deleted successfully.",
                         {
                           onClose: function () {
-                            // Navigate back to the previous page
                             var oRouter = that.getOwnerComponent().getRouter();
                             oRouter.navTo("View1");
-                            //window.history.back();
 
-                            // Reload the page after a slight delay
                             setTimeout(function () {
                               window.location.reload();
-                            }, 10); // Adjust the delay as needed
+                            }, 10);
                           },
                         }
                       );
@@ -90,7 +87,10 @@ sap.ui.define(
           );
         }
       },
+
       // //Delete End//
+
+
       formatPhoto: function (employeeID) {
         console.log("Employee ID:", employeeID);
 
@@ -106,7 +106,7 @@ sap.ui.define(
               console.log("Image loaded successfully");
               resolve(employeeImageUrl);
             };
-
+                                                                           
             img.onerror = function () {
               console.error("Image not found, using default");
               resolve("images/default.jpg");
@@ -199,7 +199,7 @@ sap.ui.define(
         };
         const nCountryValue = oCountryMapping[sSelectedCountry];
         const leave = oView.byId("leave").getSelectedKey() === "0";
-      
+
         // Parse the ID and validate it
         const sEmployeeId = oView.byId("Id").getValue();
         if (!/^\d+$/.test(sEmployeeId)) {
@@ -208,19 +208,19 @@ sap.ui.define(
           );
           return;
         }
-      
+
         // Format the date in YYYY-MM-DD format
         const sDoj = formatDate(oView.byId("myDatePicker").getDateValue());
-      
+
         // Parse the Years of Experience as an integer
         const nYoe = parseInt(oView.byId("yoe").getValue());
-      
+
         const phoneNumberInput = oView.byId("phonenumber");
         const phoneNumberValue = phoneNumberInput.getValue().replace(/,/g, "");
         const PhNo = phoneNumberValue
           ? parseFloat(phoneNumberValue.replace(/,/g, ""))
           : null;
-      
+
         // Check if the parsed value is a valid number
         if (isNaN(PhNo)) {
           sap.m.MessageBox.error(
@@ -228,12 +228,12 @@ sap.ui.define(
           );
           return;
         }
-      
+
         // Define selectedGender based on the selected dropdown item key
         const genderDropdown = oView.byId("genderDropdown");
         const selectedGenderKey = genderDropdown.getSelectedKey();
         let selectedGender;
-      
+
         if (selectedGenderKey === "Male") {
           selectedGender = "Male";
         } else if (selectedGenderKey === "Female") {
@@ -243,7 +243,7 @@ sap.ui.define(
           sap.m.MessageBox.error("Please select a valid gender.");
           return;
         }
-      
+
         // Define updatedEmployee here
         const updatedEmployee = {
           ID: parseInt(sEmployeeId),
@@ -262,7 +262,7 @@ sap.ui.define(
           gender: selectedGender, // Use the selected gender
           leave: leave,
         };
-      
+
         fetch(`./CatalogService/Employees(${updatedEmployee.ID})`, {
           method: "PATCH",
           headers: {
@@ -287,8 +287,6 @@ sap.ui.define(
           .catch(function (error) {
             sap.m.MessageBox.error(error.message); // Use error.message to display the actual error message
           });
-      
-      
 
         // Helper function to format date as YYYY-MM-DD
         function formatDate(date) {
@@ -300,7 +298,8 @@ sap.ui.define(
       },
       onCancel: function (oEvent) {
         this.byId("openDialog").close();
-      },
+      }
+      
     });
   }
 );

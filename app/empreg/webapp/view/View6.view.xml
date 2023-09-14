@@ -62,12 +62,12 @@
                                 <f:FormContainer>
                                     <f:formElements>
                                         <f:FormElement>
-                                            <f:fields>
+                                       
                                                 <Image
                                                     src="{formatter: '.formatPhoto', parts: [{path: 'MainModel>ID'}]}"
                                                     class="roundImage"
                                                 />
-                                            </f:fields>
+                                        
                                         </f:FormElement>
 
                                         <f:FormElement>
@@ -79,7 +79,7 @@
                                             </f:fields>
                                         </f:FormElement>
                                     </f:formElements>
-                                </f:FormContainer>
+                            </f:FormContainer>    
                                 <f:FormContainer
                                     title="Personal Information"
                                     class="largerTitle"

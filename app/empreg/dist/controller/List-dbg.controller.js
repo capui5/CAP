@@ -1,7 +1,8 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/ui/core/UIComponent"
-], function (Controller, UIComponent) {
+    "sap/ui/core/UIComponent",
+    "sap/ui/core/routing/History"
+], function (Controller, UIComponent,History) {
     "use strict";
    
     return Controller.extend("empreg.controller.List", {
@@ -39,7 +40,7 @@ sap.ui.define([
                 var aFilters = [];
                 var sNormalizedQuery = sQuery.toLowerCase();
                 var aSearchData = [
-                    { term: ["cap"], matches: ["cloud", "cloud development", "cloud application programming", "cloud application programming model", "capm"] },
+                    { term: ["cloud", "cloud development", "cloud application programming", "cloud application programming model", "capm"], matches: ["cloud", "cloud development", "cloud application programming", "cloud application programming model", "capm"] },
                     { term: ["javascript"], matches: ["react","node.js"] },
                     { term: ["azure"], matches: ["devops", "aws","azure"] },
                     { term: ["frontend developer"], matches: ["html","css","Angular","Fullstack","react.js","vue.js","javascript","wordpress","Fiori"] },
@@ -117,20 +118,22 @@ sap.ui.define([
         },
         //Add new employee end//
                 //Binding data//
-        onListItemPress: function (oEvent) {
-            var oItem = oEvent.getParameter("listItem");
-            var oCtx = oItem.getBindingContext("MainModel");
-            if (oCtx) {
-                var sEmployeeId = oCtx.getProperty("ID");
-                var oRouter = UIComponent.getRouterFor(this);
-                oRouter.navTo("View6", {
-                    SEmployeeId: sEmployeeId,
-                });
-            }
-            else {
-                console.error("Binding context is not available.");
-            }
-        }
+                onListItemPress: function (e) {
+                    var listItem = e.getSource(); 
+            
+                    if (listItem) {
+                      var bindingContext = listItem.getBindingContext("MainModel");
+                      if (bindingContext) {
+                        var employeeId = bindingContext.getProperty("ID");
+                        var router = sap.ui.core.UIComponent.getRouterFor(this);
+                        router.navTo("View6", { SEmployeeId: employeeId });
+                      } else {
+                        console.error("Binding context is not available.");
+                      }
+                    } else {
+                      console.error("List item is not available.");
+                    }
+                  },
       
         
     });

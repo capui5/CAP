@@ -9,7 +9,7 @@
     <Page
         id="createButton"
         title="Add New Employee"
-          showNavButton="false"
+          showNavButton="true"
         navButtonPress="onNavBack"
         class="sapUiResponsiveContentPadding "
     >
@@ -23,7 +23,7 @@
                         text="Employee ID"
                         required="true"
                     />
-                    <Input id="Id" />
+                    <Input id="Id" visible="false"/>
                     <Label
                         text="First Name"
                         required="true"

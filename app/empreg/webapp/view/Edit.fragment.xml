@@ -40,6 +40,7 @@
                         id="Id"
                         value="{MainModel>ID}"
                         visible="false"
+
                     />
 
                     <!-- First Name -->
@@ -50,6 +51,7 @@
                     <Input
                         id="fname"
                         value="{MainModel>fname}"
+                         valueLiveUpdate="false"
                     />
 
                     <!-- Last Name -->
@@ -60,6 +62,7 @@
                     <Input
                         id="lname"
                         value="{MainModel>lname}"
+                         valueLiveUpdate="false"
                     />
 
                     <!-- Designation -->
@@ -70,6 +73,7 @@
                     <Input
                         id="desig"
                         value="{MainModel>desig}"
+                         valueLiveUpdate="false"
                     />
 
                     <!-- Email Id -->
@@ -80,6 +84,7 @@
                     <Input
                         id="email"
                         value="{MainModel>email}"
+                         valueLiveUpdate="false"
                     />
 
                     <!-- Skills -->
@@ -90,6 +95,7 @@
                     <Input
                         id="skills"
                         value="{MainModel>skills}"
+                         valueLiveUpdate="false"
                     />
 
                     <!-- Country -->
@@ -99,7 +105,7 @@
                     />
                     <Select
                         id="country"
-                        selectedKey="{MainModel>country_ID}"
+                       selectedKey="{path:'MainModel>country_ID', formatter:'.formatter. selectcoun'}"
                     >
                         <core:Item
                             key="1"
@@ -125,16 +131,19 @@
                     <Input
                         id="idstate"
                         value="{MainModel>State}"
+                         valueLiveUpdate="false"
                     />
 
                     <!-- City -->
                     <Label
                         text="City"
                         required="true"
+                        
                     />
                     <Input
                         id="idcity"
                         value="{MainModel>city}"
+                         valueLiveUpdate="false"
                     />
 
                     <!-- Date Of Joining -->
@@ -143,6 +152,7 @@
                         id="myDatePicker"
                         value="{MainModel>doj}"
                         valueFormat="yyyy-MM-dd"
+                        
                     />
 
                     <!-- Years Of Experience -->
@@ -153,6 +163,7 @@
                     <Input
                         id="yoe"
                         value="{MainModel>yoe}"
+                        valueLiveUpdate="false"
                     />
                     <Label
                         text="Reporting Person"
@@ -161,11 +172,14 @@
                     <Input
                         id="reportingPerson"
                         value="{MainModel>reportingPerson}"
+                         valueLiveUpdate="false"
                     />
-                    <Label text="Phone Number" />
+                    <Label text="Phone Number"
+                    required="true" />
                     <Input
                         id="phonenumber"
                         value="{MainModel>Phno}"
+                         valueLiveUpdate="false"
                     />
 
                     <!-- Gender -->

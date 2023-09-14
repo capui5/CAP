@@ -9,6 +9,7 @@ sap.ui.define(
   function (Controller, mobileLibrary, MessageBox, Fragment, formatter) {
     "use strict";
     var URLHelper = mobileLibrary.URLHelper;
+  
 
     return Controller.extend("empreg.controller.View6", {
       formatter: formatter,
@@ -297,7 +298,8 @@ sap.ui.define(
       },
       onCancel: function (oEvent) {
         this.byId("openDialog").close();
-      },
+      }
+      
     });
   }
 );

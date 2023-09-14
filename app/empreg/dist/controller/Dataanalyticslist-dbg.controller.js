@@ -122,19 +122,21 @@ sap.ui.define([
         //Add new employee end//
         
                 //Binding data//
-        onListItemPress: function (oEvent) {
-            var oItem = oEvent.getParameter("listItem");
-            var oCtx = oItem.getBindingContext("MainModel");
-            if (oCtx) {
-                var sEmployeeId = oCtx.getProperty("ID");
-                var oRouter = UIComponent.getRouterFor(this);
-                oRouter.navTo("View6", {
-                    SEmployeeId: sEmployeeId,
-                });
-            }
-            else {
-                console.error("Binding context is not available.");
-            }
-        }
+                onListItemPress: function (e) {
+                    var listItem = e.getSource(); 
+            
+                    if (listItem) {
+                      var bindingContext = listItem.getBindingContext("MainModel");
+                      if (bindingContext) {
+                        var employeeId = bindingContext.getProperty("ID");
+                        var router = sap.ui.core.UIComponent.getRouterFor(this);
+                        router.navTo("View6", { SEmployeeId: employeeId });
+                      } else {
+                        console.error("Binding context is not available.");
+                      }
+                    } else {
+                      console.error("List item is not available.");
+                    }
+                  },
     });
 });

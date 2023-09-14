@@ -8,15 +8,81 @@
     xmlns:core="sap.ui.core"
     xmlns:css="sap.ui.core.CSS"
 >
-    <Page
-        title="All Extension Employees"
-        showNavButton="false"
-        class="sapUiResponsiveContentPadding customFont"
-    >
+    <Page class="sapUiContentPadding customFont">
+        <headerContent>
+            <Button icon="sap-icon://action" />
+        </headerContent>
+
+        <customHeader>
+            <Bar>
+                <contentLeft>
+                    <!-- Logo goes here -->
+
+                    <!-- <Image
+                        src="images/logo.jpg"
+                        height="40px"
+                    /> -->
+                </contentLeft>
+
+                <contentMiddle>
+                    <SearchField
+                        id="advancedSearch"
+                        width="50%"
+                        liveChange="onAdvancedSearch"
+                        placeholder="Search"
+                    />
+                </contentMiddle>
+
+                <contentRight>
+                    <Button icon="sap-icon://action" />
+                </contentRight>
+            </Bar>
+        </customHeader>
         <content>
+            <Title
+                text="Extension Employees"
+                class="customTitle"
+            />
+
+            <OverflowToolbar
+                id="otb1"
+                class="customOverflowToolbar"
+            >
+                <SearchField
+                    id="advancedSearchField"
+                    width="auto"
+                    liveChange="onAdvancedSearch"
+                    placeholder="Search"
+                />
+                <MultiComboBox
+                    selectionChange="handleSelectionChange"
+                    selectionFinish="handleSelectionFinish"
+                    showClearIcon="true"
+                    width="350px"
+                    items="{
+				ppath: '/Employees',
+				sorter: { path: 'skills' }
+			}"
+                >
+                    <!-- <core:Item
+                        key="{skills}"
+                        text="{skills}"
+                    /> -->
+                </MultiComboBox>
+                <ToolbarSpacer />
+                <Button
+                    id="createButton"
+                    icon="sap-icon://add"
+                    text="New Employee"
+                    visible="true"
+                    press="onaddnewemployee"
+                    class="sapUiTinyMarginBeginEnd customButton"
+                    type="Emphasized"
+                />
+            </OverflowToolbar>
+
             <List
                 id="employeelist"
-                mode="SingleSelectMaster"
                 items="{
         path: 'MainModel>/Employees',
         filters: [
@@ -37,47 +103,91 @@
             }
         ]
     }"
-               selectionChange="onListItemPress"
                 class="customFont"
             >
-                <headerToolbar>
-                    <OverflowToolbar>
-                        <content>
-                            <ToolbarSpacer />
-                            <SearchField
-                                id="advancedSearchField"
-                                width="auto"
-                                liveChange="onAdvancedSearch"
-                                placeholder="Search"
-                            />
-
-                            <Button
-                                id="createButton"
-                                icon="sap-icon://add"
-                                text="Add New Employee"
-                                visible="true"
-                                press="onaddnewemployee"
-                                class="sapUiTinyMarginBeginEnd"
-                                type="{/buttonType}"
-                            >
-                                <layoutData>
-                                    <OverflowToolbarLayoutData
-                                        priority="NeverOverflow"
-                                    />
-                                </layoutData>
-                            </Button>
-                        </content>
-                    </OverflowToolbar>
-                </headerToolbar>
-
                 <items>
-                    <StandardListItem
-                        title="{MainModel>fname} {MainModel>lname}"
-                        description="{MainModel>desig}"
-                        info="{= 'On Leave: ' + ${MainModel>leave}}"
-                        class="customListItem"
-                        infoState="{= ${MainModel>leave} === 'No' ? 'Success' : 'Warning'}"
-                    />
+                    <CustomListItem
+                        class="customItemSpacing"
+                        press="onListItemPress"
+                        type="Navigation"
+                    >
+                        <HBox
+                            alignItems="Center"
+                            justifyContent="SpaceBetween"
+                        >
+                            <HBox>
+                                <Image
+                                    src="{path: 'MainModel>ID', formatter: '.formatPhoto'}"
+                                    densityAware="false"
+                                    inset="false"
+                                    class="customIconSize"
+                                />
+                                <VBox>
+                                    <Title
+                                        text="{MainModel>fname} {MainModel>lname}"
+                                        class="custom-title"
+                                    />
+                                    <HBox alignItems="Center">
+                                        <Text
+                                            text="Position "
+                                            class="custom-label"
+                                        />
+                                        <Text
+                                            text="{MainModel>desig}"
+                                            class="custom-designation"
+                                        />
+                                    </HBox>
+
+                                    <HBox alignItems="Center">
+                                        <Text
+                                            text="Work Since "
+                                            class="custom-label"
+                                        />
+                                        <Text
+                                            text="{MainModel>doj}"
+                                            class="custom-designation"
+                                        />
+                                    </HBox>
+                                </VBox>
+                            </HBox>
+                            <VBox>
+                                <HBox alignItems="Center">
+                                    <Text
+                                        text="Phone"
+                                        class="custom-label"
+                                    />
+                                    <Text
+                                        text="{MainModel>Phno}"
+                                        class="custom-designation"
+                                    />
+                                </HBox>
+                                <HBox alignItems="Center">
+                                    <Text
+                                        text="Email"
+                                        class="custom-label"
+                                    />
+                                    <Text
+                                        text="{MainModel>email}"
+                                        class="custom-designation"
+                                    />
+                                </HBox>
+                            </VBox>
+
+                            <!-- <VBox alignItems="End">
+                                <Text
+                                    text="{= 'On Leave: ' + ${MainModel>leave}}"
+                                    textAlign="Right"
+                                    class="{ path: 'MainModel>leave', formatter: '.formatLeaveClass' }"
+                                />
+                            </VBox> -->
+                            <VBox alignItems="End">
+                                <Text
+                                    text="{= ${MainModel>leave} === 'Yes' ? 'On Leave' : 'Working'}"
+                                    class="{ path: 'MainModel>leave', formatter: '.formatLeaveClass' }"
+                                />
+                            </VBox>
+                        </HBox>
+                    </CustomListItem>
                 </items>
             </List>
         </content>

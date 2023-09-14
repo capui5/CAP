@@ -99,7 +99,7 @@
                     />
                     <Select
                         id="country"
-                        selectedKey="{MainModel>country_ID}"
+                       selectedKey="{path:'MainModel>country_ID', formatter:'.formatter. selectcoun'}"
                     >
                         <core:Item
                             key="1"
@@ -162,7 +162,8 @@
                         id="reportingPerson"
                         value="{MainModel>reportingPerson}"
                     />
-                    <Label text="Phone Number" />
+                    <Label text="Phone Number"
+                    required="true" />
                     <Input
                         id="phonenumber"
                         value="{MainModel>Phno}"

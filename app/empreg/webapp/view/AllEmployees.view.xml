@@ -16,9 +16,7 @@
         <content>
             <List
                 id="employeelist"
-                mode="SingleSelectMaster"
                 items="{MainModel>/Employees}"
-                selectionChange="onListItemPress"
                 class="customFont"
             >
                 <headerToolbar>
@@ -58,6 +56,8 @@
                         info="{= 'On Leave: ' + ${MainModel>leave}}"
                         class="customListItem"
                         infoState="{= ${MainModel>leave} === 'No' ? 'Success' : 'Warning'}"
+                        press="onListItemPress"
+                        type= "Navigation"
                     />
                 </items>
             </List>

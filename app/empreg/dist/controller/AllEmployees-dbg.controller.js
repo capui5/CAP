@@ -176,14 +176,19 @@ sap.ui.define(
         });
       },
       onListItemPress: function (e) {
-        var a = e.getParameter("listItem");
-        var o = a.getBindingContext("MainModel");
-        if (o) {
-          var r = o.getProperty("ID");
-          var i = t.getRouterFor(this);
-          i.navTo("View6", { SEmployeeId: r });
+        var listItem = e.getSource(); 
+
+        if (listItem) {
+          var bindingContext = listItem.getBindingContext("MainModel");
+          if (bindingContext) {
+            var employeeId = bindingContext.getProperty("ID");
+            var router = sap.ui.core.UIComponent.getRouterFor(this);
+            router.navTo("View6", { SEmployeeId: employeeId });
+          } else {
+            console.error("Binding context is not available.");
+          }
         } else {
-          console.error("Binding context is not available.");
+          console.error("List item is not available.");
         }
       },
     });

@@ -16,7 +16,7 @@
         <content>
             <List
                 id="employeelist"
-                mode="SingleSelectMaster"
+             
                 items="{
         path: 'MainModel>/Employees',
         filters: [
@@ -37,7 +37,7 @@
             }
         ]
     }"
-               selectionChange="onListItemPress"
+            
                 class="customFont"
             >
                 <headerToolbar>
@@ -74,7 +74,12 @@
                     <StandardListItem
                         title="{MainModel>fname} {MainModel>lname}"
                         description="{MainModel>desig}"
-                      
+                        info="{= 'On Leave: ' + ${MainModel>leave}}"
+                        class="customListItem"
+                        infoState="{= ${MainModel>leave} === 'No' ? 'Success' : 'Warning'}"
+                          press="onListItemPress"
+
+                        type= "Navigation"
                     />
                 </items>
             </List>

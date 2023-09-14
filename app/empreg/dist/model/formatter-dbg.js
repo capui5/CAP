@@ -15,6 +15,18 @@ sap.ui.define([], function () {
             return "Female";
 
         },
+        selectcoun: function (name) {
+            if (name === "Netherlands") {
+                return "1";
+            } else if (name === "India") {
+                return "2";
+            } else if (name === "Singapore") {
+                return "3";
+            } else {
+                return ""; // Return an empty string for other cases or when no match is found
+            }
+        }
+        
 	};
     
 });
