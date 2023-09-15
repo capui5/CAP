@@ -6,9 +6,12 @@
     xmlns:form="sap.ui.layout.form"
     xmlns:l="sap.ui.layout"
     xmlns:core="sap.ui.core"
-    xmlns:css="sap.ui.core.CSS"
 >
-    <Page class="sapUiContentPadding customFont">
+    <Page
+        class="sapUiContentPadding customFont"
+        showNavButton="true"
+        navButtonPress="onNavBack"
+    >
         <headerContent>
             <Button icon="sap-icon://action" />
         </headerContent>
@@ -16,12 +19,10 @@
         <customHeader>
             <Bar>
                 <contentLeft>
-                    <!-- Logo goes here -->
-
-                    <!-- <Image
-                        src="images/logo.jpg"
-                        height="40px"
-                    /> -->
+                    <Button
+                        icon="sap-icon://nav-back"
+                        press="onNavBack"
+                    />
                 </contentLeft>
 
                 <contentMiddle>
@@ -34,7 +35,10 @@
                 </contentMiddle>
 
                 <contentRight>
-                    <Button icon="sap-icon://action" />
+                    <Button
+                        icon="sap-icon://action"
+                        press="onLogout"
+                    />
                 </contentRight>
             </Bar>
         </customHeader>
@@ -60,15 +64,16 @@
                     showClearIcon="true"
                     width="350px"
                     items="{
-				ppath: '/Employees',
-				sorter: { path: 'skills' }
-			}"
+                path: 'MainModel>/Employees',
+                sorter: { path: 'skills' }
+                }"
                 >
-                    <!-- <core:Item
-                        key="{skills}"
-                        text="{skills}"
-                    /> -->
+                    <core:Item
+                        key="{MainModel>ID}"
+                        text="{MainModel>skills}"
+                    />
                 </MultiComboBox>
+
                 <ToolbarSpacer />
                 <Button
                     id="createButton"
@@ -76,7 +81,7 @@
                     text="New Employee"
                     visible="true"
                     press="onaddnewemployee"
-                    class="sapUiTinyMarginBeginEnd customButton"
+                    class="sapUiTinyMarginBeginEnd customButtonHeight"
                     type="Emphasized"
                 />
             </OverflowToolbar>
@@ -180,12 +185,23 @@
                                     class="{ path: 'MainModel>leave', formatter: '.formatLeaveClass' }"
                                 />
                             </VBox> -->
+                            <!-- ... Your previous code ... -->
+
                             <VBox alignItems="End">
                                 <Text
                                     text="{= ${MainModel>leave} === 'Yes' ? 'On Leave' : 'Working'}"
-                                    class="{ path: 'MainModel>leave', formatter: '.formatLeaveClass' }"
-                                />
+                                    class="leaveText"
+                                >
+                                    <customData>
+                                        <core:CustomData
+                                            key="leaveStatus"
+                                            value="{MainModel>leave}"
+                                        />
+                                    </customData>
+                                </Text>
                             </VBox>
+
+                            <!-- ... The rest of your code ... -->
                         </HBox>
                     </CustomListItem>
                 </items>

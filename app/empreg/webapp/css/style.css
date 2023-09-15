@@ -8,11 +8,11 @@
   color: #333;
 }
 .on-leave {
-  color: red;
+    color: red;
 }
 
 .working {
-  color: green;
+    color: green;
 }
 
 
@@ -30,7 +30,6 @@
   font-weight: bold;
   font-size: 16px;
 }
-
 
 .largerTitle .sapMTitle {
   font-size: large;
@@ -76,16 +75,10 @@
   width: 150px;
   display: inline-block;
 }
-
-.sapMBtn.increaseFont .sapMBtnIcon .sapUiIcon {
-  font-size: 1.5rem;
-  color: red;
-}
-
 .myCustomTile {
   background-color: #f0f0f0;
   border: 1px solid #ccc;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding-bottom: 100px;
 }
 
@@ -118,38 +111,33 @@
   > .sapUiFormTitle {
   font-size: larger;
 }
-.customListItem[isOnLeave="true"] {
-  background-color: red; 
-}
-
-.customListItem[isOnLeave="false"] {
-  background-color: green; 
+.sapUiSizeCompact .sapMTB {
+  height: 80px;
 }
 .customItemSpacing {
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
   height: 150px;
   border-radius: 10px;
-  
 }
 
-.customIconSize{
+.customIconSize {
   padding: 20px;
   width: 90px;
   height: 90px;
-  border-radius: 30%; 
+  border-radius: 30%;
 }
 
 .custom-title {
-  padding-top: 20px;  
+  padding-top: 20px;
   font-size: large;
 }
-.custom-designation{
+.custom-designation {
   font-size: medium;
   font-weight: 500;
   padding-top: 5px;
 }
-.custom-label{
+.custom-label {
   padding-top: 5px;
   font-weight: lighter;
   margin-right: 10px;
@@ -158,28 +146,20 @@ span.sapMBtnInner.sapMBtnEmphasized {
   background-color: #1bc8ce;
   border-color: #00ebf2;
   color: #fff;
-  text-align: center;
-  height: 40px;
-  padding: 10px 20px;
+  padding: 10px;
+  height: auto;
+  width:auto;
 }
+
 span.sapMBtnInner.sapMBtnEmphasized:hover {
   background-color: #00ebf2;
   border-color: #00ebf2;
   color: #fff;
 }
-.customButton {
-  margin-bottom: 20px; 
-  position: relative;
-  top: 0;
-  right: 0;
-  height: 40px;
-}
-
 .customOverflowToolbar {
-  margin-bottom: 20px; /* Adjust the value as needed */
-}
+  margin-bottom: 10px; 
 
-/* Remove white background color */
+}
 .customOverflowToolbar .sapMOverflowToolbarWrapper {
   background-color: transparent;
 }
@@ -189,24 +169,27 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
 .sapMTB {
   background: none;
 }
-.sapUiSizeCompact .sapMBtn {
-  height: 100px;
-  padding: 2px;
-}
 .sapMIBar.sapMHeader-CTX {
   background-color: #0f2743;
-
+  height: 200px;
 }
 
-.sapMIBar .sapMBtn .sapMBtnInner.sapMBtnDefault, .sapMIBar .sapMBtn .sapMBtnInner.sapMBtnDefault .sapUiIcon, .sapUxAPObjectPageHeaderIdentifierActions .sapMBtn .sapMBtnInner.sapMBtnDefault, .sapUxAPObjectPageHeaderIdentifierActions .sapMBtn .sapMBtnInner.sapMBtnDefault .sapUiIcon {
+.sapMIBar .sapMBtn .sapMBtnInner.sapMBtnDefault,
+.sapMIBar .sapMBtn .sapMBtnInner.sapMBtnDefault .sapUiIcon,
+.sapUxAPObjectPageHeaderIdentifierActions .sapMBtn .sapMBtnInner.sapMBtnDefault,
+.sapUxAPObjectPageHeaderIdentifierActions
+  .sapMBtn
+  .sapMBtnInner.sapMBtnDefault
+  .sapUiIcon {
   color: #ffff;
   background-color: transparent;
 }
-.customTitle{
+
+.customTitle {
   font-size: larger;
   font-weight: bolder;
   padding-left: 10px;
 }
-.sapMBar{
+.sapMBar {
   height: 500px;
 }
