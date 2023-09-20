@@ -3,21 +3,16 @@ sap.ui.define(
     "sap/ui/core/mvc/Controller",
     "sap/ui/core/UIComponent",
     "sap/ui/core/routing/History",
-    "sap/ui/model/json/JSONModel",
   ],
-  function (Controller, UIComponent, History, JSONModel) {
+  function (Controller, UIComponent, History) {
     "use strict";
 
     return Controller.extend("empreg.controller.List", {
       onInit: function () {
-        // Get a reference to the list
         this.oList = this.byId("employeelist");
-
-        // Get the data model
         this.oDataModel = this.getOwnerComponent().getModel();
-
-        // Set the model for the view
         this.getView().setModel(this.oDataModel);
+        
       },
 
       //Nav Back start//
@@ -198,6 +193,7 @@ sap.ui.define(
           console.error("List item is not available.");
         }
       },
+
       formatPhoto: function (employeeID) {
         console.log("Employee ID:", employeeID);
 
@@ -216,131 +212,154 @@ sap.ui.define(
 
             img.onerror = function () {
               console.error("Image not found, using default");
-              resolve("images/default.jpg");
+              resolve("images/default-boy.jpg");
             };
           });
         } else {
           console.log("Employee ID not provided, using default");
-          return "images/default.jpg";
+          return "images/default-boy.jpg";
         }
       },
+      
       //Log out//
       onLogout: function () {
-        sap.ui.core.UIComponent.getRouterFor(this).navTo("View1");
+        window.location.href = "/do/logout";
       },
       //Log out end//
-      // HandleSelectionChange
-      handleSelectionChange: async function (oEvent) {
-        try {
-          var oMultiComboBox = oEvent.getSource();
-          var aSelectedItems = oMultiComboBox.getSelectedItems();
-          var aSelectedSkills = aSelectedItems.map(function (oItem) {
-            return oItem.getKey();
-          });
-
-          console.log("Selected Skills: ", aSelectedSkills);
-
-          var oList = this.getView().byId("employeelist");
-          var oBinding = oList.getBinding("items");
-
-          if (!oBinding) {
-            console.error("Binding is undefined.");
-            return;
-          }
-
+      // handleSelectionChange: function (oEvent) {
+      //   try {
+      //     var oModel = this.getView().getModel("MainModel");
+      
+      //     if (!oModel) {
+      //       console.error("Model not found.");
+      //       return;
+      //     }
+      
+      //     var oMultiComboBox = oEvent.getSource();
+      //     var aSelectedItems = oMultiComboBox.getSelectedItems();
+      //     var aSelectedSkills = aSelectedItems.map(function (oItem) {
+      //       return oItem.getKey();
+      //     });
+      
+      //     console.log("Selected Skills: ", aSelectedSkills);
+      
+      //     var oList = this.getView().byId("employeelist");
+      //     var oBinding = oList.getBinding("items");
+      
+      //     if (!oBinding) {
+      //       console.error("Binding is undefined.");
+      //       return;
+      //     }
+      
+      //     var aFilters = [];
+      
+      //     // Loop through each selected skill and create a filter
+      //     aSelectedSkills.forEach(function (sSkill) {
+      //       if (sSkill) {
+      //         console.log("Filtering for skill: " + sSkill);
+      
+      //         // Split the selected skill into individual skills
+      //         var individualSkills = sSkill.split(",").map(function (skill) {
+      //           return skill.trim();
+      //         });
+      
+      //         // Loop through each individual skill and create a filter
+      //         var skillFilters = individualSkills.map(function (individualSkill) {
+      //           return new sap.ui.model.Filter({
+      //             path: "skills",
+      //             operator: sap.ui.model.FilterOperator.Contains,
+      //             value1: individualSkill,
+      //             caseSensitive: false,
+      //           });
+      //         });
+      
+      //         // Combine the filters for individual skills using "OR" logic
+      //         var combinedFilter = new sap.ui.model.Filter(skillFilters, false);
+      //         aFilters.push(combinedFilter);
+      
+      //         console.log("Added filter for skill: " + sSkill);
+      //       }
+      //     });
+      
+      //     console.log("Applied Filters: ", aFilters);
+      
+      //     // Combine the filters with "OR" logic
+      //     if (aFilters.length > 0) {
+      //       var oCombinedFilter = new sap.ui.model.Filter(aFilters, true); // true for "OR" logic
+      //       oBinding.filter(oCombinedFilter);
+      //     } else {
+      //       // If no filters are selected, clear the filter
+      //       oBinding.filter([]);
+      //     }
+          
+      //     // Manually refresh the binding
+      //     oList.getBinding("items").refresh();
+      //     oModel.refresh();
+      
+      //     console.log("Combined Filter: ", oCombinedFilter);
+      //   } catch (error) {
+      //     console.error("Error: ", error);
+      //   }
+      // },
+      handleSelectionChange: function (oEvent) {
+        var oMultiComboBox = oEvent.getSource();
+        var aSelectedItems = oMultiComboBox.getSelectedItems();
+        var aSelectedSkills = aSelectedItems.map(function (oItem) {
+          return oItem.getKey();
+        });
+      
+        var oList = this.getView().byId("employeelist");
+        var oBinding = oList.getBinding("items");
+      
+        if (oBinding) {
           var aFilters = [];
-
-          // Loop through each selected skill and create a filter
+      
           aSelectedSkills.forEach(function (sSkill) {
             if (sSkill) {
-              console.log("Filtering for skill: " + sSkill);
-
-              // Split the selected skill into individual skills
-              var individualSkills = sSkill.split(",");
-
-              // Loop through each individual skill and create a filter
-              var skillFilters = individualSkills.map(function (
-                individualSkill
-              ) {
-                return new sap.ui.model.Filter({
-                  path: "skills",
-                  operator: sap.ui.model.FilterOperator.Contains,
-                  value1: individualSkill.trim(),
-                  caseSensitive: false,
-                });
+              var oFilter = new sap.ui.model.Filter({
+                path: "skills",
+                operator: sap.ui.model.FilterOperator.Contains,
+                value1: sSkill,
+                caseSensitive: false,
               });
-
-              // Combine the filters for individual skills using "OR" logic
-              var combinedFilter = new sap.ui.model.Filter(skillFilters, false);
-              aFilters.push(combinedFilter);
-
-              console.log("Added filter for skill: " + sSkill);
+              aFilters.push(oFilter);
             }
           });
-
-          console.log("Applied Filters: ", aFilters);
-
-          // Combine the filters with "OR" logic
-          var oCombinedFilter = new sap.ui.model.Filter(aFilters, true); // true for "OR" logic
-
-          console.log("Combined Filter: ", oCombinedFilter);
-
-          // Apply the filter to the binding
-          oBinding.filter(oCombinedFilter);
-
-          // Get the filtered items asynchronously
-          var aFilteredItems = await this._getFilteredItems(oBinding);
-
-          console.log("Filtered Data: ", aFilteredItems);
-
-          // Clear the filter when no skills are selected
-          if (aSelectedSkills.length === 0) {
+      
+          if (aFilters.length > 0) {
+            var combinedFilter = new sap.ui.model.Filter({
+              filters: aFilters,
+              and: true, // All filters must match for the condition to be met
+            });
+      
+            oBinding.filter(combinedFilter);
+          } else {
+            // Clear the filter when no skills are selected
             oBinding.filter([]);
           }
-        } catch (error) {
-          console.error("Error: ", error);
         }
       },
-
-      // Helper function to get filtered items asynchronously
-      _getFilteredItems: function (oBinding) {
-        return new Promise(function (resolve, reject) {
-          oBinding.attachEventOnce("dataReceived", function () {
-            var aFilteredItems = oBinding
-              .getCurrentContexts()
-              .map(function (oContext) {
-                if (oContext && oContext.getObject) {
-                  var item = oContext.getObject();
-                  return item;
-                }
-                return null;
-              });
-            resolve(aFilteredItems);
-          });
-        });
-      },
-
+      
+      
       // Handle selection finish in the MultiComboBox
       handleSelectionFinish: function (oEvent) {
         var selectedItems = oEvent.getParameter("selectedItems");
-
+      
         // Check if any items are selected
         if (selectedItems.length > 0) {
-          // Iterate through the selected items
-          for (var i = 0; i < selectedItems.length; i++) {
-            var selectedItem = selectedItems[i];
+          selectedItems.forEach(function (selectedItem) {
             var key = selectedItem.getKey();
             var text = selectedItem.getText();
-
+      
             // Perform actions for each selected item (e.g., display key and text)
             console.log("Selected Key: " + key);
             console.log("Selected Text: " + text);
-          }
+          });
         } else {
           // Handle the case where no items are selected
           console.log("No items selected.");
         }
-      },
+      },      
     });
   }
 );

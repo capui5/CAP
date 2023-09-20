@@ -29,9 +29,6 @@
 .centeredHeader {
   text-align: center;
 }
-.leavestatus {
-  color: red;
-}
 
 .customFont {
   font-family: Roboto;
@@ -122,7 +119,9 @@
 
 .custom-title {
   padding-top: 20px;
-  font-size: large;
+  font-size: larger;
+  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .custom-designation {
   font-size: medium;
@@ -140,7 +139,8 @@ span.sapMBtnInner.sapMBtnEmphasized {
   color: #fff;
   padding: 10px;
   height: auto;
-  width: auto;
+  width:auto;
+  font-family: Roboto;
 }
 
 span.sapMBtnInner.sapMBtnEmphasized:hover {
@@ -149,7 +149,8 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
   color: #fff;
 }
 .customOverflowToolbar {
-  margin-bottom: 10px;
+  margin-bottom: 10px; 
+
 }
 .customOverflowToolbar .sapMOverflowToolbarWrapper {
   background-color: transparent;
@@ -178,9 +179,13 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
 
 .customTitle {
   font-size: larger;
-  font-weight: bolder;
+  font-weight: 700;
   padding-left: 10px;
+  font-family: Roboto;
 }
 .sapMBar {
   height: 500px;
 }
+/* .sapMFlexBoxJustifySpaceBetween {
+  justify-content: unset;
+} */

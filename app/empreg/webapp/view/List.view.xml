@@ -26,12 +26,12 @@
                 </contentLeft>
 
                 <contentMiddle>
-                    <SearchField
+                    <!-- <SearchField
                         id="advancedSearch"
                         width="50%"
                         liveChange="onAdvancedSearch"
                         placeholder="Search"
-                    />
+                    /> -->
                 </contentMiddle>
 
                 <contentRight>
@@ -69,7 +69,7 @@
                    }"
                 >
                     <core:Item
-                        key="{MainModel>ID}"
+                        key="{MainModel>fname}"
                         text="{MainModel>skills}"
                     />
                 </MultiComboBox>
@@ -127,6 +127,7 @@
                                     inset="false"
                                     class="customIconSize"
                                 />
+
                                 <VBox>
                                     <Title
                                         text="{MainModel>fname} {MainModel>lname}"
@@ -134,7 +135,7 @@
                                     />
                                     <HBox alignItems="Center">
                                         <Text
-                                            text="Position "
+                                            text="Position :"
                                             class="custom-label"
                                         />
                                         <Text
@@ -145,7 +146,7 @@
 
                                     <HBox alignItems="Center">
                                         <Text
-                                            text="Work Since "
+                                            text="Date Of Joining : "
                                             class="custom-label"
                                         />
                                         <Text
@@ -158,7 +159,7 @@
                             <VBox>
                                 <HBox alignItems="Center">
                                     <Text
-                                        text="Phone"
+                                        text="Phone :"
                                         class="custom-label"
                                     />
                                     <Text
@@ -168,7 +169,7 @@
                                 </HBox>
                                 <HBox alignItems="Center">
                                     <Text
-                                        text="Email"
+                                        text="Email :"
                                         class="custom-label"
                                     />
                                     <Text
@@ -180,7 +181,7 @@
                             <VBox alignItems="End">
                                 <ObjectStatus
                                     text="{= ${MainModel>leave} === 'Yes' ? 'On Leave' : 'Working'}"
-                                    state="{= ${MainModel>leave} === 'No' ? 'Success' : 'Warning'}"
+                                    state="{= ${MainModel>leave} === 'Yes' ? 'Warning' : 'Success'}"
                                 />
                             </VBox>
                         </HBox>

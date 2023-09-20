@@ -26,7 +26,6 @@ sap.ui.define([], function () {
                 return ""; // Return an empty string for other cases or when no match is found
             }
         }
-        
 	};
     
 });
