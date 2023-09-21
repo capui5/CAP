@@ -58,7 +58,7 @@
                     liveChange="onAdvancedSearch"
                     placeholder="Search"
                 />
-                <MultiComboBox
+                <!-- <MultiComboBox
                     selectionChange="handleSelectionChange"
                     selectionFinish="handleSelectionFinish"
                     showClearIcon="{MainModel>showClearIcon}"
@@ -72,6 +72,44 @@
                         key="{MainModel>fname}"
                         text="{MainModel>skills}"
                     />
+                </MultiComboBox> -->
+                <MultiComboBox
+                    change="handleChange"
+                    selectionChange="handleSelectionChange"
+                    width="350px"
+                    id="skillsMultiComboBox"
+                >
+                    <core:Item
+                        key="html"
+                        text="HTML"
+                    />
+
+                    <core:Item
+                        key="CSS"
+                        text="CSS"
+                    />
+
+                    <core:Item
+                        key="CAPM"
+                        text="CAPM"
+                    />
+
+                    <core:Item
+                        key="Cloud Application Programming Model"
+                        text="Cloud Application Programming Model"
+                    />
+
+                    <core:Item
+                        key="UI5"
+                        text="UI5"
+                    />
+
+                    <core:Item
+                        key="Fullstack"
+                        text="Fullstack"
+                    />
+
+                    <!-- Add more skills as needed -->
                 </MultiComboBox>
 
                 <ToolbarSpacer />
@@ -119,9 +157,10 @@
                         <HBox
                             alignItems="Center"
                             class="flexContainer"
+                            justifyContent="SpaceBetween"
                         >
                             <!-- First equal part -->
-                            <HBox>
+                            <HBox width="45%">
                                 <Image
                                     src="{
                 parts: [
@@ -163,37 +202,43 @@
                             </HBox>
 
                             <!-- Second equal part -->
-                            <VBox alignItems="Start">
-                                <!-- Use alignItems="Start" to align vertically at the start -->
-                                <HBox alignItems="Center">
-                                    <Text
-                                        text="Phone Number :"
-                                        class="custom-label"
-                                    />
-                                    <Text
-                                        text="{MainModel>Phno}"
-                                        class="custom-designation"
-                                    />
-                                </HBox>
-                                <HBox alignItems="Center">
-                                    <Text
-                                        text="Email :"
-                                        class="custom-label"
-                                    />
-                                    <Text
-                                        text="{MainModel>email}"
-                                        class="custom-designation"
-                                    />
-                                </HBox>
-                            </VBox>
-
+                            <HBox
+                                width="45%"
+                                alignItems="Center"
+                            >
+                                <VBox alignItems="Start">
+                                    <!-- Use alignItems="Start" to align vertically at the start -->
+                                    <HBox alignItems="Center">
+                                        <Text
+                                            text="Phone Number :"
+                                            class="custom-label"
+                                        />
+                                        <Text
+                                            text="{MainModel>Phno}"
+                                            class="custom-designation"
+                                        />
+                                    </HBox>
+                                    <HBox alignItems="Center">
+                                        <Text
+                                            text="Email :"
+                                            class="custom-label"
+                                        />
+                                        <Text
+                                            text="{MainModel>email}"
+                                            class="custom-designation"
+                                        />
+                                    </HBox>
+                                </VBox>
+                            </HBox>
                             <!-- Third equal part -->
-                            <VBox alignItems="End">
-                                <ObjectStatus
-                                    text="{= ${MainModel>leave} === 'Yes' ? 'On Leave' : 'Working'}"
-                                    state="{= ${MainModel>leave} === 'Yes' ? 'Warning' : 'Success'}"
-                                />
-                            </VBox>
+                            <HBox width="10%">
+                                <VBox alignItems="End">
+                                    <ObjectStatus
+                                        text="{= ${MainModel>leave} === 'Yes' ? 'Leave' : 'Working'}"
+                                        state="{= ${MainModel>leave} === 'Yes' ? 'Warning' : 'Success'}"
+                                    />
+                                </VBox>
+                            </HBox>
                         </HBox>
                     </CustomListItem>
                 </items>

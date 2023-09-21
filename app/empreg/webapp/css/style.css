@@ -111,14 +111,14 @@
 }
 
 .customIconSize {
-  padding: 20px;
+  padding: 25px;
   width: 90px;
   height: 90px;
   border-radius: 30%;
 }
 
 .custom-title {
-  padding-top: 20px;
+  padding-top: 30px;
   font-size: larger;
   font-weight: 600;
   font-family: Arial, Helvetica, sans-serif;
@@ -127,13 +127,14 @@
   font-size: medium;
   font-weight: 500;
   padding-top: 5px;
+
 }
 .custom-label {
   padding-top: 5px;
   font-weight: lighter;
-  margin-right: 10px;
+  margin-right: 5px;
 }
-span.sapMBtnInner.sapMBtnEmphasized {
+/* span.sapMBtnInner.sapMBtnEmphasized {
   background-color: #1bc8ce;
   border-color: #00ebf2;
   color: #fff;
@@ -141,8 +142,43 @@ span.sapMBtnInner.sapMBtnEmphasized {
   height: auto;
   width:auto;
   font-family: Roboto;
+} */
+span#container-empreg---AllEmployees--createButton-inner{
+  background-color: #1bc8ce;
+  border-color: #1bc8ce;
+  color: #fff;
+  padding: 10px;
+  height: auto;
+  width:auto;
+  font-family: Arial, Helvetica, sans-serif;
 }
-
+span#container-empreg---AllEmployees--createButton-inner:hover{
+  background-color: #00ebf2;
+  border-color: #00ebf2;
+  color: #fff;
+  padding: 10px;
+  height: auto;
+  width:auto;
+  font-family: Arial, Helvetica, sans-serif;
+}
+span#container-empreg---List--createButton-inner {
+  background-color: #1bc8ce;
+  border-color: #1bc8ce;
+  color: #fff;
+  padding: 10px;
+  height: auto;
+  width:auto;
+  font-family: Arial, Helvetica, sans-serif;
+}
+span#container-empreg---List--createButton-inner:hover {
+  background-color: #00ebf2;
+  border-color: #00ebf2;
+  color: #fff;
+  padding: 10px;
+  height: auto;
+  width:auto;
+  font-family: Arial, Helvetica, sans-serif;
+}
 span.sapMBtnInner.sapMBtnEmphasized:hover {
   background-color: #00ebf2;
   border-color: #00ebf2;
@@ -163,7 +199,7 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
 }
 .sapMIBar.sapMHeader-CTX {
   background-color: #0f2743;
-  height: 200px;
+  height: 1000px;
 }
 
 .sapMIBar .sapMBtn .sapMBtnInner.sapMBtnDefault,
@@ -181,7 +217,7 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
   font-size: larger;
   font-weight: 700;
   padding-left: 10px;
-  font-family: Roboto;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .sapMBar {
   height: 500px;

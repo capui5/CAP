@@ -92,7 +92,7 @@
     }"
                 class="customFont"
             >
-                <items>
+               <items>
                     <CustomListItem
                         class="customItemSpacing"
                         press="onListItemPress"
@@ -100,17 +100,19 @@
                     >
                         <HBox
                             alignItems="Center"
+                            class="flexContainer"
                             justifyContent="SpaceBetween"
                         >
-                            <HBox>
+                            <!-- First equal part -->
+                            <HBox width="45%">
                                 <Image
                                     src="{
-        parts: [
-            { path: 'MainModel>ID' },
-            { path: 'MainModel>gender' }
-        ],
-        formatter: '.formatPhoto'
-    }"
+                parts: [
+                    { path: 'MainModel>ID' },
+                    { path: 'MainModel>gender' }
+                ],
+                formatter: '.formatPhoto'
+            }"
                                     densityAware="false"
                                     inset="false"
                                     class="customIconSize"
@@ -130,10 +132,9 @@
                                             class="custom-designation"
                                         />
                                     </HBox>
-
                                     <HBox alignItems="Center">
                                         <Text
-                                            text="Date Of Joining : "
+                                            text="Date Of Joining :"
                                             class="custom-label"
                                         />
                                         <Text
@@ -143,35 +144,45 @@
                                     </HBox>
                                 </VBox>
                             </HBox>
-                            <VBox>
-                                <HBox alignItems="Center">
-                                    <Text
-                                        text="Phone no :"
-                                        class="custom-label"
-                                    />
-                                    <Text
-                                        text="{MainModel>Phno}"
-                                        class="custom-designation"
-                                    />
-                                </HBox>
 
-                                <HBox alignItems="Center">
-                                    <Text
-                                        text="Email : "
-                                        class="custom-label"
+                            <!-- Second equal part -->
+                            <HBox
+                                width="45%"
+                                alignItems="Center"
+                            >
+                                <VBox alignItems="Start">
+                                    <!-- Use alignItems="Start" to align vertically at the start -->
+                                    <HBox alignItems="Center">
+                                        <Text
+                                            text="Phone Number :"
+                                            class="custom-label"
+                                        />
+                                        <Text
+                                            text="{MainModel>Phno}"
+                                            class="custom-designation"
+                                        />
+                                    </HBox>
+                                    <HBox alignItems="Center">
+                                        <Text
+                                            text="Email :"
+                                            class="custom-label"
+                                        />
+                                        <Text
+                                            text="{MainModel>email}"
+                                            class="custom-designation"
+                                        />
+                                    </HBox>
+                                </VBox>
+                            </HBox>
+                            <!-- Third equal part -->
+                            <HBox width="10%">
+                                <VBox alignItems="End">
+                                    <ObjectStatus
+                                        text="{= ${MainModel>leave} === 'Yes' ? 'Leave' : 'Working'}"
+                                        state="{= ${MainModel>leave} === 'Yes' ? 'Warning' : 'Success'}"
                                     />
-                                    <Text
-                                        text="{MainModel>doj}"
-                                        class="custom-designation"
-                                    />
-                                </HBox>
-                            </VBox>
-                            <VBox alignItems="End">
-                                <ObjectStatus
-                                    text="{= ${MainModel>leave} === 'Yes' ? 'On Leave' : 'Working'}"
-                                    state="{= ${MainModel>leave} === 'Yes' ? 'Warning' : 'Success'}"
-                                />
-                            </VBox>
+                                </VBox>
+                            </HBox>
                         </HBox>
                     </CustomListItem>
                 </items>
