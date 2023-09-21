@@ -186,6 +186,15 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
 .sapMBar {
   height: 500px;
 }
-/* .sapMFlexBoxJustifySpaceBetween {
+.flexContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Optionally, you can set a fixed width for each VBox */
+.flexContainer > VBox {
+  flex: 1;  
+}
+ /* .sapMFlexBoxJustifySpaceBetween {
   justify-content: unset;
-} */
+}  */

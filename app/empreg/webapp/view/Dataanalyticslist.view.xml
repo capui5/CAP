@@ -120,12 +120,18 @@
                             justifyContent="SpaceBetween"
                         >
                             <HBox>
-                                <Image
-                                    src="{ path: 'MainModel>ID', formatter: '.formatPhoto' }"
-                                    densityAware="false"
-                                    inset="false"
-                                    class="customIconSize"
-                                />
+                                 <Image
+                                        src="{
+        parts: [
+            { path: 'MainModel>ID' },
+            { path: 'MainModel>gender' }
+        ],
+        formatter: '.formatPhoto'
+    }"
+                                        densityAware="false"
+                                        inset="false"
+                                        class="customIconSize"
+                                    />
                                 <VBox>
                                     <Title
                                         text="{MainModel>fname} {MainModel>lname}"

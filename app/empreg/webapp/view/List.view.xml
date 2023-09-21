@@ -116,75 +116,84 @@
                         press="onListItemPress"
                         type="Navigation"
                     >
-                        <HBox
-                            alignItems="Center"
-                            justifyContent="SpaceBetween"
-                        >
-                            <HBox>
-                                <Image
-                                    src="{ path: 'MainModel>ID', formatter: '.formatPhoto' }"
-                                    densityAware="false"
-                                    inset="false"
-                                    class="customIconSize"
-                                />
-
-                                <VBox>
-                                    <Title
-                                        text="{MainModel>fname} {MainModel>lname}"
-                                        class="custom-title"
+                        <VBox>
+                            <HBox
+                                alignItems="Center"
+                                class="flexContainer"
+                            >
+                                <HBox>
+                                    <Image
+                                        src="{
+        parts: [
+            { path: 'MainModel>ID' },
+            { path: 'MainModel>gender' }
+        ],
+        formatter: '.formatPhoto'
+    }"
+                                        densityAware="false"
+                                        inset="false"
+                                        class="customIconSize"
                                     />
+
+                                    <VBox>
+                                        <Title
+                                            text="{MainModel>fname} {MainModel>lname}"
+                                            class="custom-title"
+                                        />
+                                        <HBox alignItems="Center">
+                                            <Text
+                                                text="Position :"
+                                                class="custom-label"
+                                            />
+                                            <Text
+                                                text="{MainModel>desig}"
+                                                class="custom-designation"
+                                            />
+                                        </HBox>
+
+                                        <HBox alignItems="Center">
+                                            <Text
+                                                text="Date Of Joining : "
+                                                class="custom-label"
+                                            />
+                                            <Text
+                                                text="{MainModel>doj}"
+                                                class="custom-designation"
+                                            />
+                                        </HBox>
+                                    </VBox>
+                                </HBox>
+                                <VBox>
                                     <HBox alignItems="Center">
                                         <Text
-                                            text="Position :"
+                                            text="Phone Number :"
                                             class="custom-label"
                                         />
                                         <Text
-                                            text="{MainModel>desig}"
+                                            text="{MainModel>Phno}"
                                             class="custom-designation"
                                         />
                                     </HBox>
 
                                     <HBox alignItems="Center">
                                         <Text
-                                            text="Date Of Joining : "
+                                            text="Email : "
                                             class="custom-label"
                                         />
                                         <Text
-                                            text="{MainModel>doj}"
+                                            text="{MainModel>email}"
                                             class="custom-designation"
                                         />
                                     </HBox>
                                 </VBox>
+                                <VBox alignItems="End">
+                                    <ObjectStatus
+                                        text="{= ${MainModel>leave} === 'Yes' ? 'On Leave' : 'Working'}"
+                                        state="{= ${MainModel>leave} === 'Yes' ? 'Warning' : 'Success'}"
+                                    />
+                                </VBox>
                             </HBox>
-                            <VBox>
-                                <HBox alignItems="Center">
-                                    <Text
-                                        text="Phone :"
-                                        class="custom-label"
-                                    />
-                                    <Text
-                                        text="{MainModel>Phno}"
-                                        class="custom-designation"
-                                    />
-                                </HBox>
-                                <HBox alignItems="Center">
-                                    <Text
-                                        text="Email :"
-                                        class="custom-label"
-                                    />
-                                    <Text
-                                        text="{MainModel>email}"
-                                        class="custom-designation"
-                                    />
-                                </HBox>
-                            </VBox>
-                            <VBox alignItems="End">
-                                <ObjectStatus
-                                    text="{= ${MainModel>leave} === 'Yes' ? 'On Leave' : 'Working'}"
-                                    state="{= ${MainModel>leave} === 'Yes' ? 'Warning' : 'Success'}"
-                                />
-                            </VBox>
-                        </HBox>
+                        </VBox>
                     </CustomListItem>
                 </items>
             </List>

@@ -40,23 +40,18 @@ sap.ui.define(
       onCreate: function () {
         var that = this;
 
-
         $.ajax({
           type: "GET",
 
-          url: "./CatalogService/Employees?$orderby=ID desc&$top=1", 
+          url: "./CatalogService/Employees?$orderby=ID desc&$top=1",
 
           dataType: "json",
 
           success: function (data) {
-         
-
             if (data && data.value && data.value.length > 0) {
               var maxIdResult = data.value[0];
 
               var nextEmployeeId = maxIdResult.ID + 1;
-
-          
 
               var sSelectedCountry = that
                 .byId("country")

@@ -2,9 +2,9 @@ sap.ui.define(
   [
     "sap/ui/core/mvc/Controller",
     "sap/ui/core/UIComponent",
-    "sap/ui/core/routing/History"
+    "sap/ui/core/routing/History",
   ],
-  function (e,UIComponent, History) {
+  function (e, UIComponent, History) {
     "use strict";
     return e.extend("empreg.controller.AllEmployees", {
       onInit: function () {
@@ -191,62 +191,52 @@ sap.ui.define(
           console.error("List item is not available.");
         }
       },
-      // formatPhoto: function (employeeID) {
-      //   console.log("Employee ID:", employeeID);
-
-      //   if (employeeID) {
-      //     var employeeImageUrl = "images/" + employeeID + ".jpg";
-      //     console.log("Employee Image URL:", employeeImageUrl);
-
-      //     var img = new Image();
-      //     img.src = employeeImageUrl;
-
-      //     return new Promise(function (resolve, reject) {
-      //       img.onload = function () {
-      //         console.log("Image loaded successfully");
-      //         resolve(employeeImageUrl);
-      //       };
-
-      //       img.onerror = function () {
-      //         console.error("Image not found, using default");
-      //         resolve("images/default-boy.jpg");
-      //       };
-      //     });
-      //   } else {
-      //     console.log("Employee ID not provided, using default");
-      //     return "images/default-boy.jpg";
-      //   }
-      // },
+      //Image//
       formatPhoto: function (employeeID, gender) {
         console.log("Employee ID:", employeeID);
-      
+        console.log("Gender received:", gender);
+
+        // Define the default image URLs
+        var defaultMaleImage = "images/default-boy.jpg";
+        var defaultFemaleImage = "images/default-girl.jpg";
+
+        // Function to load an image and return a promise
+        function loadImage(imageUrl) {
+          return new Promise(function (resolve, reject) {
+            var img = new Image();
+            img.src = imageUrl;
+
+            img.onload = function () {
+              console.log("Image loaded successfully");
+              resolve(imageUrl);
+            };
+
+            img.onerror = function () {
+              console.error("Image not found, using default");
+              resolve(null);
+            };
+          });
+        }
+
+        // If employeeID is available, construct the employee-specific image URL
         if (employeeID) {
           var employeeImageUrl = "images/" + employeeID + ".jpg";
           console.log("Employee Image URL:", employeeImageUrl);
-      
-          var img = new Image();
-          img.src = employeeImageUrl;
-      
-          return new Promise(function (resolve, reject) {
-            img.onload = function () {
-              console.log("Image loaded successfully");
-              resolve(employeeImageUrl);
-            };
-      
-            img.onerror = function () {
-              console.error("Image not found, using default");
-              var defaultImage = "images/default-" + (gender === "male" ? "girl" : "boy") + ".jpg";
-              resolve(defaultImage); 
-            };
+
+          return loadImage(employeeImageUrl).then(function (image) {
+            return (
+              image ||
+              (gender === "Male" ? defaultMaleImage : defaultFemaleImage)
+            );
           });
-        } else {
-          console.log("Employee ID not provided, using default");
-          var defaultImage = "images/default-" + (gender === "female" ? "girl" : "boy") + ".jpg";
-          return defaultImage;
         }
-      },      
+
+        // If employeeID is not available, return the default image based on gender
+        return gender === "Male" ? defaultMaleImage : defaultFemaleImage;
+      },
+      //Image//
       //Log out//
-      onLogout:function () {
+      onLogout: function () {
         window.location.href = "/do/logout";
       },
       //Log out end//

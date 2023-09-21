@@ -104,7 +104,13 @@
                         >
                             <HBox>
                                 <Image
-                                    src="{ path: 'MainModel>ID', formatter: '.formatPhoto' }"
+                                    src="{
+        parts: [
+            { path: 'MainModel>ID' },
+            { path: 'MainModel>gender' }
+        ],
+        formatter: '.formatPhoto'
+    }"
                                     densityAware="false"
                                     inset="false"
                                     class="customIconSize"
@@ -116,7 +122,7 @@
                                     />
                                     <HBox alignItems="Center">
                                         <Text
-                                            text="Position "
+                                            text="Position :"
                                             class="custom-label"
                                         />
                                         <Text
@@ -127,7 +133,7 @@
 
                                     <HBox alignItems="Center">
                                         <Text
-                                            text="Work Since "
+                                            text="Date Of Joining : "
                                             class="custom-label"
                                         />
                                         <Text
@@ -140,7 +146,7 @@
                             <VBox>
                                 <HBox alignItems="Center">
                                     <Text
-                                        text="Phone"
+                                        text="Phone no :"
                                         class="custom-label"
                                     />
                                     <Text
@@ -148,22 +154,22 @@
                                         class="custom-designation"
                                     />
                                 </HBox>
+
                                 <HBox alignItems="Center">
                                     <Text
-                                        text="Email"
+                                        text="Email : "
                                         class="custom-label"
                                     />
                                     <Text
-                                        text="{MainModel>email}"
+                                        text="{MainModel>doj}"
                                         class="custom-designation"
                                     />
                                 </HBox>
                             </VBox>
-
                             <VBox alignItems="End">
                                 <ObjectStatus
                                     text="{= ${MainModel>leave} === 'Yes' ? 'On Leave' : 'Working'}"
-                                    state="{= ${MainModel>leave} === 'No' ? 'Success' : 'Warning'}"
+                                    state="{= ${MainModel>leave} === 'Yes' ? 'Warning' : 'Success'}"
                                 />
                             </VBox>
                         </HBox>
