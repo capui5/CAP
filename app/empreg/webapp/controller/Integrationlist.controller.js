@@ -193,40 +193,46 @@ sap.ui.define(
         }
       },
       //Image//
-
       formatPhoto: function (employeeID, gender) {
         console.log("Employee ID:", employeeID);
         console.log("Gender received:", gender);
-
+    
+        // Define the default image URLs
+        var defaultMaleImage = "images/default-boy.jpg";
+        var defaultFemaleImage = "images/default-girl.jpg";
+    
+        // Function to load an image and return a promise
         function loadImage(imageUrl) {
-          return new Promise(function (resolve, reject) {
-            var img = new Image();
-            img.src = imageUrl;
-
-            img.onload = function () {
-              console.log("Image loaded successfully");
-              resolve(imageUrl);
-            };
-
-            img.onerror = function () {
-              console.error("Image not found, using default");
-              resolve(null);
-            };
-          });
+            return new Promise(function (resolve, reject) {
+                var img = new Image();
+                img.src = imageUrl;
+    
+                img.onload = function () {
+                    console.log("Image loaded successfully");
+                    resolve(imageUrl);
+                };
+    
+                img.onerror = function () {
+                    console.error("Image not found, using default");
+                    resolve(null);
+                };
+            });
         }
+    
+        // If employeeID is available, construct the employee-specific image URL
         if (employeeID) {
-          var employeeImageUrl = "images/" + employeeID + ".jpg";
-          console.log("Employee Image URL:", employeeImageUrl);
-
-          return loadImage(employeeImageUrl).then(function (image) {
-            return (
-              image ||
-              (gender === "Male" ? defaultMaleImage : defaultFemaleImage)
-            );
-          });
+            var employeeImageUrl = "images/" + employeeID + ".jpg";
+            console.log("Employee Image URL:", employeeImageUrl);
+            
+            return loadImage(employeeImageUrl)
+                .then(function (image) {
+                    return image || (gender === 'Male' ? defaultMaleImage : defaultFemaleImage);
+                });
         }
-        return gender === "Male" ? defaultMaleImage : defaultFemaleImage;
-      },
+    
+        // If employeeID is not available, return the default image based on gender
+        return gender === 'Male' ? defaultMaleImage : defaultFemaleImage;
+    },    
       //Image//
       //Log out//
       onLogout: function () {
