@@ -192,15 +192,11 @@ sap.ui.define(
         }
       },
       //Image//
+
       formatPhoto: function (employeeID, gender) {
         console.log("Employee ID:", employeeID);
         console.log("Gender received:", gender);
 
-        // Define the default image URLs
-        var defaultMaleImage = "images/default-boy.jpg";
-        var defaultFemaleImage = "images/default-girl.jpg";
-
-        // Function to load an image and return a promise
         function loadImage(imageUrl) {
           return new Promise(function (resolve, reject) {
             var img = new Image();
@@ -217,8 +213,6 @@ sap.ui.define(
             };
           });
         }
-
-        // If employeeID is available, construct the employee-specific image URL
         if (employeeID) {
           var employeeImageUrl = "images/" + employeeID + ".jpg";
           console.log("Employee Image URL:", employeeImageUrl);
@@ -230,8 +224,6 @@ sap.ui.define(
             );
           });
         }
-
-        // If employeeID is not available, return the default image based on gender
         return gender === "Male" ? defaultMaleImage : defaultFemaleImage;
       },
       //Image//
