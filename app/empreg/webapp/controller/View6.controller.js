@@ -251,7 +251,7 @@ sap.ui.define(
           lname: oView.byId("lname").getValue(),
           desig: oView.byId("desig").getValue(),
           email: oView.byId("email").getValue(),
-          skills: oView.byId("skills").getValue(),
+          skills: oView.byId("skills").getValue().toUpperCase(),
           country_ID: nCountryValue,
           State: oView.byId("idstate").getValue(),
           city: oView.byId("idcity").getValue(),

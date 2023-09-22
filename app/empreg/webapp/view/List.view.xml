@@ -12,36 +12,34 @@
         showNavButton="true"
         navButtonPress="onNavBack"
     >
-        <headerContent>
-            <Button icon="sap-icon://action" />
-        </headerContent>
-
         <customHeader>
             <Bar>
                 <contentLeft>
                     <Button
                         icon="sap-icon://nav-back"
                         press="onNavBack"
+                        class="myCustomButton"
                     />
                 </contentLeft>
 
                 <contentMiddle>
-                    <!-- <SearchField
-                        id="advancedSearch"
-                        width="50%"
-                        liveChange="onAdvancedSearch"
-                        placeholder="Search"
-                    /> -->
+                    <Image
+                        src="images/logo.png"
+                        width="135px"
+                        height="40px"
+                    />
                 </contentMiddle>
 
                 <contentRight>
                     <Button
                         icon="sap-icon://action"
                         press="onLogout"
+                        class="myCustomButton"
                     />
                 </contentRight>
             </Bar>
         </customHeader>
+
         <content>
             <Title
                 text="Extension Employees"
@@ -58,21 +56,6 @@
                     liveChange="onAdvancedSearch"
                     placeholder="Search"
                 />
-                <!-- <MultiComboBox
-                    selectionChange="handleSelectionChange"
-                    selectionFinish="handleSelectionFinish"
-                    showClearIcon="{MainModel>showClearIcon}"
-                    width="350px"
-                    items="{
-                    path: 'MainModel>/Employees',
-                    sorter: { path: 'skills' }
-                   }"
-                >
-                    <core:Item
-                        key="{MainModel>fname}"
-                        text="{MainModel>skills}"
-                    />
-                </MultiComboBox> -->
                 <MultiComboBox
                     change="handleChange"
                     selectionChange="handleSelectionChange"
@@ -80,7 +63,7 @@
                     id="skillsMultiComboBox"
                 >
                     <core:Item
-                        key="html"
+                        key="HTML"
                         text="HTML"
                     />
 

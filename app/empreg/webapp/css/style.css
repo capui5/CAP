@@ -58,6 +58,9 @@
 .customForm {
   background-color: #f5f5f5;
 }
+.tileContainer{
+  padding-top: 20px;
+}
 
 .formLabel {
   text-align: right;
@@ -153,8 +156,8 @@ span#container-empreg---AllEmployees--createButton-inner{
   font-family: Arial, Helvetica, sans-serif;
 }
 span#container-empreg---AllEmployees--createButton-inner:hover{
-  background-color: #00ebf2;
-  border-color: #00ebf2;
+  background-color: #1fd4da;
+  border-color: #1fd4da;
   color: #fff;
   padding: 10px;
   height: auto;
@@ -171,18 +174,49 @@ span#container-empreg---List--createButton-inner {
   font-family: Arial, Helvetica, sans-serif;
 }
 span#container-empreg---List--createButton-inner:hover {
-  background-color: #00ebf2;
-  border-color: #00ebf2;
+  background-color: #1fd4da;
+  border-color: #1fd4da;
   color: #fff;
   padding: 10px;
   height: auto;
   width:auto;
   font-family: Arial, Helvetica, sans-serif;
 }
-span.sapMBtnInner.sapMBtnEmphasized:hover {
-  background-color: #00ebf2;
-  border-color: #00ebf2;
+span#container-empreg---Integrationlist--createButton-inner {
+  background-color: #1bc8ce;
+  border-color: #1bc8ce;
   color: #fff;
+  padding: 10px;
+  height: auto;
+  width:auto;
+  font-family: Arial, Helvetica, sans-serif;
+}
+span#container-empreg---Integrationlist--createButton-inner:hover{
+  background-color: #1fd4da;
+  border-color: #1fd4da;
+  color: #fff;
+  padding: 10px;
+  height: auto;
+  width:auto;
+  font-family: Arial, Helvetica, sans-serif;
+}
+span#container-empreg---Dataanalyticslist--createButton-inner {
+  background-color: #1bc8ce;
+  border-color: #1bc8ce;
+  color: #fff;
+  padding: 10px;
+  height: auto;
+  width:auto;
+  font-family: Arial, Helvetica, sans-serif;
+}
+span#container-empreg---Dataanalyticslist--createButton-inner:hover{
+  background-color: #1fd4da;
+  border-color: #1fd4da;
+  color: #fff;
+  padding: 10px;
+  height: auto;
+  width:auto;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .customOverflowToolbar {
   margin-bottom: 10px; 
@@ -199,7 +233,6 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
 }
 .sapMIBar.sapMHeader-CTX {
   background-color: #0f2743;
-  height: 1000px;
 }
 
 .sapMIBar .sapMBtn .sapMBtnInner.sapMBtnDefault,
@@ -217,6 +250,7 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
   font-size: larger;
   font-weight: 700;
   padding-left: 10px;
+  padding-top: 20px;
   font-family: Arial, Helvetica, sans-serif;
 }
 .sapMBar {
@@ -231,6 +265,67 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
 .flexContainer > VBox {
   flex: 1;  
 }
- /* .sapMFlexBoxJustifySpaceBetween {
-  justify-content: unset;
-}  */
+div#__bar0 {
+  height: 60px;
+}
+div#__bar1{
+  height: 60px;
+}
+div#__bar2{
+  height: 60px;
+}
+div#__bar3{
+  height: 60px;
+}
+div#__bar4{
+  height: 60px;
+}
+
+div#__bar0-BarPH{
+  height: -webkit-fill-available;
+}
+div#__bar1-BarPH {
+  height: -webkit-fill-available;
+}
+div#__bar2-BarPH {
+  height: -webkit-fill-available;
+}
+div#__bar3-BarPH {
+  height: -webkit-fill-available;
+}
+div#__bar4-BarPH {
+  height: -webkit-fill-available;
+}
+.myCustomButton {
+  font-size: 24px; 
+}
+div#__bar0-BarRight {
+  height: -webkit-fill-available;
+}
+div#__bar0-BarLeft {
+  height: -webkit-fill-available;
+}
+div#__bar1-BarRight {
+  height: -webkit-fill-available;
+}
+div#__bar1-BarLeft {
+  height: -webkit-fill-available;
+}
+div#__bar2-BarRight {
+  height: -webkit-fill-available;
+}
+div#__bar2-BarLeft {
+  height: -webkit-fill-available;
+}
+div#__bar3-BarRight {
+  height: -webkit-fill-available;
+}
+div#__bar3-BarLeft {
+  height: -webkit-fill-available;
+}
+div#__bar4-BarRight {
+  height: -webkit-fill-available;
+}
+div#__bar4-BarLeft {
+  height: -webkit-fill-available;
+}

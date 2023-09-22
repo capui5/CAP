@@ -79,7 +79,7 @@ sap.ui.define(
 
                 email: that.byId("email").getValue(),
 
-                skills: that.byId("skills").getValue(),
+                skills: that.byId("skills").getValue().toUpperCase(),
 
                 country_ID: nCountryValue,
 

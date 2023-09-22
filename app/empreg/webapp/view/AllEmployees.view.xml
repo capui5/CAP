@@ -12,25 +12,21 @@
         showNavButton="true"
         navButtonPress="onNavBack"
     >
-        <headerContent>
-            <Button icon="sap-icon://action" />
-        </headerContent>
-
         <customHeader>
             <Bar>
                 <contentLeft>
                     <Button
                         icon="sap-icon://nav-back"
                         press="onNavBack"
+                        class="myCustomButton"
                     />
                 </contentLeft>
 
                 <contentMiddle>
-                    <SearchField
-                        id="advancedSearch"
-                        width="50%"
-                        liveChange="onAdvancedSearch"
-                        placeholder="Search"
+                    <Image
+                        src="images/logo.png"
+                        width="135px"
+                        height="40px"
                     />
                 </contentMiddle>
 
@@ -38,10 +34,12 @@
                     <Button
                         icon="sap-icon://action"
                         press="onLogout"
+                        class="myCustomButton"
                     />
                 </contentRight>
             </Bar>
         </customHeader>
+
         <content>
             <Title
                 text="All Employees"
@@ -59,19 +57,42 @@
                     placeholder="Search"
                 />
                 <MultiComboBox
+                    change="handleChange"
                     selectionChange="handleSelectionChange"
-                    selectionFinish="handleSelectionFinish"
-                    showClearIcon="{MainModel>showClearIcon}"
                     width="350px"
-                    items="{
-                    path: 'MainModel>/Employees',
-                    sorter: { path: 'skills' }
-                   }"
+                    id="skillsMultiComboBox"
                 >
                     <core:Item
-                        key="{MainModel>ID}"
-                        text="{MainModel>skills}"
+                        key="HTML"
+                        text="HTML"
                     />
+
+                    <core:Item
+                        key="CSS"
+                        text="CSS"
+                    />
+
+                    <core:Item
+                        key="CAPM"
+                        text="CAPM"
+                    />
+
+                    <core:Item
+                        key="Cloud Application Programming Model"
+                        text="Cloud Application Programming Model"
+                    />
+
+                    <core:Item
+                        key="UI5"
+                        text="UI5"
+                    />
+
+                    <core:Item
+                        key="Fullstack"
+                        text="Fullstack"
+                    />
+
+                    <!-- Add more skills as needed -->
                 </MultiComboBox>
 
                 <ToolbarSpacer />
@@ -85,14 +106,15 @@
                     type="Emphasized"
                 />
             </OverflowToolbar>
+
             <List
                 id="employeelist"
                 items="{
         path: 'MainModel>/Employees'
-    }"
+        }"
                 class="customFont"
             >
-               <items>
+                <items>
                     <CustomListItem
                         class="customItemSpacing"
                         press="onListItemPress"
