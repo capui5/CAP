@@ -58,7 +58,7 @@
 .customForm {
   background-color: #f5f5f5;
 }
-.tileContainer{
+.tileContainer {
   padding-top: 20px;
 }
 
@@ -130,38 +130,29 @@
   font-size: medium;
   font-weight: 500;
   padding-top: 5px;
-
 }
 .custom-label {
   padding-top: 5px;
   font-weight: lighter;
   margin-right: 5px;
 }
-/* span.sapMBtnInner.sapMBtnEmphasized {
-  background-color: #1bc8ce;
-  border-color: #00ebf2;
-  color: #fff;
-  padding: 10px;
-  height: auto;
-  width:auto;
-  font-family: Roboto;
-} */
-span#container-empreg---AllEmployees--createButton-inner{
+
+span#container-empreg---AllEmployees--createButton-inner {
   background-color: #1bc8ce;
   border-color: #1bc8ce;
   color: #fff;
   padding: 10px;
   height: auto;
-  width:auto;
+  width: auto;
   font-family: Arial, Helvetica, sans-serif;
 }
-span#container-empreg---AllEmployees--createButton-inner:hover{
+span#container-empreg---AllEmployees--createButton-inner:hover {
   background-color: #1fd4da;
   border-color: #1fd4da;
   color: #fff;
   padding: 10px;
   height: auto;
-  width:auto;
+  width: auto;
   font-family: Arial, Helvetica, sans-serif;
 }
 span#container-empreg---List--createButton-inner {
@@ -170,7 +161,7 @@ span#container-empreg---List--createButton-inner {
   color: #fff;
   padding: 10px;
   height: auto;
-  width:auto;
+  width: auto;
   font-family: Arial, Helvetica, sans-serif;
 }
 span#container-empreg---List--createButton-inner:hover {
@@ -179,7 +170,7 @@ span#container-empreg---List--createButton-inner:hover {
   color: #fff;
   padding: 10px;
   height: auto;
-  width:auto;
+  width: auto;
   font-family: Arial, Helvetica, sans-serif;
 }
 span#container-empreg---Integrationlist--createButton-inner {
@@ -188,16 +179,16 @@ span#container-empreg---Integrationlist--createButton-inner {
   color: #fff;
   padding: 10px;
   height: auto;
-  width:auto;
+  width: auto;
   font-family: Arial, Helvetica, sans-serif;
 }
-span#container-empreg---Integrationlist--createButton-inner:hover{
+span#container-empreg---Integrationlist--createButton-inner:hover {
   background-color: #1fd4da;
   border-color: #1fd4da;
   color: #fff;
   padding: 10px;
   height: auto;
-  width:auto;
+  width: auto;
   font-family: Arial, Helvetica, sans-serif;
 }
 span#container-empreg---Dataanalyticslist--createButton-inner {
@@ -206,21 +197,57 @@ span#container-empreg---Dataanalyticslist--createButton-inner {
   color: #fff;
   padding: 10px;
   height: auto;
-  width:auto;
+  width: auto;
   font-family: Arial, Helvetica, sans-serif;
 }
-span#container-empreg---Dataanalyticslist--createButton-inner:hover{
+span#container-empreg---Dataanalyticslist--createButton-inner:hover {
   background-color: #1fd4da;
   border-color: #1fd4da;
+  color: #fff;
+  padding: 10px;
+  height: auto;
+  width: auto;
+  font-family: Arial, Helvetica, sans-serif;
+}
+span#container-empreg---View6--update-inner {
+  background-color: #1bc8ce;
+  border-color: #1bc8ce;
   color: #fff;
   padding: 10px;
   height: auto;
   width:auto;
   font-family: Arial, Helvetica, sans-serif;
 }
-.customOverflowToolbar {
-  margin-bottom: 10px; 
+span#container-empreg---View6--update-inner:hover {
+  background-color: #1fd4da;
+  border-color: #1fd4da;
+  color: #fff;
+  padding: 10px;
+  height: auto;
+  width: auto;
+  font-family: Arial, Helvetica, sans-serif;
+}
+span#container-empreg---View6--delete-inner{
+  background-color: #ce1b1bee;
+  border-color: #ce1b1bee;
+  color: #fff;
+  padding: 10px;
+  height: auto;
+  width:auto;
+  font-family: Arial, Helvetica, sans-serif;
+}
+span#container-empreg---View6--delete-inner:hover{
+  background-color: #d53535;
+  border-color: #d22e2eec;
+  color: #fff;
+  padding: 10px;
+  height: auto;
+  width:auto;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
+.customOverflowToolbar {
+  margin-bottom: 10px;
 }
 .customOverflowToolbar .sapMOverflowToolbarWrapper {
   background-color: transparent;
@@ -234,18 +261,78 @@ span#container-empreg---Dataanalyticslist--createButton-inner:hover{
 .sapMIBar.sapMHeader-CTX {
   background-color: #0f2743;
 }
-
-.sapMIBar .sapMBtn .sapMBtnInner.sapMBtnDefault,
-.sapMIBar .sapMBtn .sapMBtnInner.sapMBtnDefault .sapUiIcon,
-.sapUxAPObjectPageHeaderIdentifierActions .sapMBtn .sapMBtnInner.sapMBtnDefault,
-.sapUxAPObjectPageHeaderIdentifierActions
-  .sapMBtn
-  .sapMBtnInner.sapMBtnDefault
-  .sapUiIcon {
-  color: #ffff;
+span#__button0-inner:hover{
   background-color: transparent;
 }
-
+span#__button0-img{
+  color: white;
+}
+span#__button1-inner:hover{
+  background-color: transparent;
+}
+span#__button1-img{
+  color: white;
+}
+span#__button2-inner:hover{
+  background-color: transparent;
+}
+span#__button2-img{
+  color: white;
+}
+span#__button3-inner:hover{
+  background-color: transparent;
+}
+span#__button3-img{
+  color: white;
+}
+span#__button4-inner:hover{
+  background-color: transparent;
+}
+span#__button4-img{
+  color: white;
+}
+span#__button5-inner:hover{
+  background-color: transparent;
+}
+span#__button5-img{
+  color: white;
+}
+span#__button6-inner:hover{
+  background-color: transparent;
+}
+span#__button6-img{
+  color: white;
+}
+span#__button7-inner:hover{
+  background-color: transparent;
+}
+span#__button7-img{
+  color: white;
+}
+span#__button8-inner:hover{
+  background-color: transparent;
+}
+span#__button8-img{
+  color: white;
+}
+span#__button9-inner:hover{
+  background-color: transparent;
+}
+span#__button9-img{
+  color: white;
+}
+span#__button10-inner:hover{
+  background-color: transparent;
+}
+span#__button10-img{
+  color: white;
+}
+span#__button11-inner:hover{
+  background-color: transparent;
+}
+span#__button11-img{
+  color: white;
+}
 .customTitle {
   font-size: larger;
   font-weight: 700;
@@ -263,25 +350,25 @@ span#container-empreg---Dataanalyticslist--createButton-inner:hover{
 
 /* Optionally, you can set a fixed width for each VBox */
 .flexContainer > VBox {
-  flex: 1;  
+  flex: 1;
 }
 div#__bar0 {
   height: 60px;
 }
-div#__bar1{
+div#__bar1 {
   height: 60px;
 }
-div#__bar2{
+div#__bar2 {
   height: 60px;
 }
-div#__bar3{
+div#__bar3 {
   height: 60px;
 }
-div#__bar4{
+div#__bar4 {
   height: 60px;
 }
 
-div#__bar0-BarPH{
+div#__bar0-BarPH {
   height: -webkit-fill-available;
 }
 div#__bar1-BarPH {
@@ -297,7 +384,7 @@ div#__bar4-BarPH {
   height: -webkit-fill-available;
 }
 .myCustomButton {
-  font-size: 24px; 
+  font-size: 24px;
 }
 div#__bar0-BarRight {
   height: -webkit-fill-available;
@@ -328,4 +415,90 @@ div#__bar4-BarRight {
 }
 div#__bar4-BarLeft {
   height: -webkit-fill-available;
+}
+.customTitle {
+  font-size: larger;
+
+  font-weight: bolder;
+
+  padding-left: 10px;
+}
+
+.sapMBar {
+  height: 500px;
+}
+
+.fname {
+  font-size: 25px;
+
+  font-weight: bolder;
+}
+
+.customButton {
+  width: 150px;
+
+  height: 50px !important;
+
+  margin: 50px;
+}
+
+.buttonhbox {
+  height: 100px;
+
+  background-color: white;
+}
+
+.sidenavview6 {
+  height: 600px;
+}
+
+section#__splitter0-content-1 {
+  background-color: white;
+}
+
+.labelemail {
+  display: contents;
+}
+
+.sapUiFormLblColon td:not(.sapUiGridLabelFull).sapUiFormElementLbl > .sapMLabel,
+.sapUiFormLblColon
+  .sapUiRespGridMedia-Std-Phone.sapUiFormResGridCont
+  > :not(.sapUiRespGridSpanS12).sapUiFormElementLbl
+  > .sapMLabel,
+.sapUiFormLblColon
+  .sapUiRespGridMedia-Std-Tablet.sapUiFormResGridCont
+  > :not(.sapUiRespGridSpanM12).sapUiFormElementLbl
+  > .sapMLabel,
+.sapUiFormLblColon
+  .sapUiRespGridMedia-Std-Desktop.sapUiFormResGridCont
+  > :not(.sapUiRespGridSpanL12).sapUiFormElementLbl
+  > .sapMLabel,
+.sapUiFormLblColon
+  .sapUiRespGridMedia-Std-LargeDesktop.sapUiFormResGridCont
+  > :not(.sapUiRespGridSpanXL12).sapUiFormElementLbl
+  > .sapMLabel,
+.sapUiFormLblColon
+  .sapUiFormResLayout
+  .sapUiRFLRow:first-child
+  > .sapUiRFLContainer:first-child:not(.sapUiRFLFullLength)
+  > .sapUiRFLContainerContent.sapUiFormElementLbl
+  > .sapMLabel,
+.sapUiFormLblColon
+  .sapUiFormCL.sapUiFormCLSmallColumns
+  :not(.sapUiFormCLCellsS12).sapUiFormElementLbl
+  > .sapMLabel,
+.sapUiFormLblColon
+  .sapUiFormCL.sapUiFormCLWideColumns
+  :not(.sapUiFormCLCellsL12).sapUiFormElementLbl
+  > .sapMLabel {
+  display: contents;
+}
+section#container-empreg---View5--createButton-cont{
+  background-color: white;
+}
+span#container-empreg---View5--create-inner{
+  margin-left : 15px;
+}
+span#__button14-inner {
+  background-color: blue;
 }

@@ -13,6 +13,33 @@
         navButtonPress="onNavBack"
         class="sapUiResponsiveContentPadding "
     >
+     <customHeader>
+            <Bar>
+                <contentLeft>
+                    <Button
+                        icon="sap-icon://nav-back"
+                        press="onNavBack"
+                        class="myCustomButton"
+                    />
+                </contentLeft>
+
+                <contentMiddle>
+                    <Image
+                        src="images/logo.png"
+                        width="135px"
+                        height="40px"
+                    />
+                </contentMiddle>
+
+                <contentRight>
+                    <Button
+                        icon="sap-icon://action"
+                        press="onLogout"
+                        class="myCustomButton"
+                    />
+                </contentRight>
+            </Bar>
+        </customHeader>
         <content>
             <form:SimpleForm
                 editable="true"
@@ -89,6 +116,11 @@
                         required="true"
                     />
                     <Input id="reportingPerson" />
+                     <Label
+                        text="Phone Number"
+                        required="true"
+                    />
+                    <Input id="Phno" />
                     <Label
                         text="Gender"
                         required="true"

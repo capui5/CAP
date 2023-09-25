@@ -9,7 +9,6 @@ sap.ui.define(
   function (Controller, mobileLibrary, MessageBox, Fragment, formatter) {
     "use strict";
     var URLHelper = mobileLibrary.URLHelper;
-  
 
     return Controller.extend("empreg.controller.View6", {
       formatter: formatter,
@@ -38,85 +37,126 @@ sap.ui.define(
       },
 
       //Email handler start//
-      // handleEmailPress: function (evt) {
-      //     var recipientEmail = "recipient@example.com";
-      //     var subject = "Info Request";
-      //     var body = "Hello, I would like to request some information.";
+      handleEmailPress: function (evt) {
+        var recipientEmail = "recipient@example.com";
+        var subject = "Info Request";
+        var body = "Hello, I would like to request some information.";
 
-      //     var mailtoLink = "mailto:" + recipientEmail + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-      //     window.location.href = mailtoLink;
-      // },
+        var mailtoLink =
+          "mailto:" +
+          recipientEmail +
+          "?subject=" +
+          encodeURIComponent(subject) +
+          "&body=" +
+          encodeURIComponent(body);
+        window.location.href = mailtoLink;
+      },
       //Email handler end //
       //Delete Start//
       onDelete: function () {
-        var oView = this.getView();
-        var oEmployeePanel = oView.byId("employeePanel");
-        var oList = oView.byId("employeelist");
-        var that = this;
-        if (oEmployeePanel) {
-          var oBindingContext = oEmployeePanel.getBindingContext("MainModel");
-          sap.m.MessageBox.confirm(
-            "Are you sure you want to delete this employee?",
-            {
-              title: "Confirm Deletion",
-              onClose: function (oAction) {
-                if (oAction === sap.m.MessageBox.Action.OK) {
-                  oBindingContext
-                    .delete("$direct")
-                    .then(function () {
-                      sap.m.MessageBox.success(
-                        "Employee deleted successfully.",
-                        {
-                          onClose: function () {
-                            var oRouter = that.getOwnerComponent().getRouter();
-                            oRouter.navTo("View1");
+        console.log("Delete button clicked");
 
-                            setTimeout(function () {
-                              window.location.reload();
-                            }, 10);
-                          },
-                        }
-                      );
-                    })
-                    .catch(function (error) {
-                      sap.m.MessageBox.error("Error deleting employee.");
+        var oView = this.getView();
+
+        var oBindingContext = oView.getBindingContext("MainModel"); // Replace "MainModel" with your actual model name
+
+        if (oBindingContext) {
+          var sEmployeeIdToDelete = oBindingContext.getProperty("ID"); // Assuming "ID" is the unique identifier of an employee
+
+          // Show a confirmation dialog
+
+          MessageBox.confirm("Are you sure you want to delete this employee?", {
+            title: "Confirm Deletion",
+
+            onClose: function (oAction) {
+              if (oAction === MessageBox.Action.OK) {
+                // Perform the DELETE request to delete the employee
+
+                oBindingContext
+
+                  .delete("$direct")
+
+                  .then(function () {
+                    // Successful deletion
+
+                    MessageBox.success("Employee deleted successfully.", {
+                      onClose: function () {
+                        // Navigate to another view (e.g., "View1")
+
+                        var oRouter =
+                          sap.ui.core.UIComponent.getRouterFor(oView);
+
+                        oRouter.navTo("View1");
+
+                        // Reload the page (optional)
+
+                        setTimeout(function () {
+                          window.location.reload();
+                        }, 10);
+                      },
                     });
-                }
-              },
-            }
-          );
+                  })
+
+                  .catch(function (error) {
+                    // Error during deletion
+
+                    console.error("Error deleting employee:", error);
+
+                    MessageBox.error("Error deleting employee.");
+                  });
+              }
+            },
+          });
+        } else {
+          console.error("No binding context found.");
         }
       },
-
       // //Delete End//
 
-
-      formatPhoto: function (employeeID) {
+      //Image//
+      formatPhoto: function (employeeID, gender) {
         console.log("Employee ID:", employeeID);
+        console.log("Gender received:", gender);
 
+        // Define the default image URLs
+        var defaultMaleImage = "images/default-boy.jpg";
+        var defaultFemaleImage = "images/default-girl.jpg";
+
+        // Function to load an image and return a promise
+        function loadImage(imageUrl) {
+          return new Promise(function (resolve, reject) {
+            var img = new Image();
+            img.src = imageUrl;
+
+            img.onload = function () {
+              console.log("Image loaded successfully");
+              resolve(imageUrl);
+            };
+
+            img.onerror = function () {
+              console.error("Image not found, using default");
+              resolve(null);
+            };
+          });
+        }
+
+        // If employeeID is available, construct the employee-specific image URL
         if (employeeID) {
           var employeeImageUrl = "images/" + employeeID + ".jpg";
           console.log("Employee Image URL:", employeeImageUrl);
 
-          var img = new Image();
-          img.src = employeeImageUrl;
-
-          return new Promise(function (resolve, reject) {
-            img.onload = function () {
-              console.log("Image loaded successfully");
-              resolve(employeeImageUrl);
-            };
-                                                                           
-            img.onerror = function () {
-              console.error("Image not found, using default");
-              resolve("images/default.jpg");
-            };
+          return loadImage(employeeImageUrl).then(function (image) {
+            return (
+              image ||
+              (gender === "Male" ? defaultMaleImage : defaultFemaleImage)
+            );
           });
-        } else {
-          console.log("Employee ID not provided, using default");
-          return "images/default.jpg";
         }
+
+        // If employeeID is not available, return the default image based on gender
+        return gender === "Male" ? defaultMaleImage : defaultFemaleImage;
       },
+      //Image//
 
       onEdit: function () {
         var oView = this.getView();
@@ -148,43 +188,7 @@ sap.ui.define(
         }
         var oModel = oView.getModel("MainModel");
         console.log(oModel.getData());
-        // var oModel = oView.getModel("MainModel");
-        // if (oModel.leave == false) {
-        //   this.getView()
-        //     .byId("leave")
-        //     .setSelected(0 / 1);
-        // }
       },
-
-      // setEmployeeData: function (oEmployee) {
-      //   var oView = this.getView();
-
-      //   // Set values for various fields based on oEmployee properties
-      //   oView.byId("EmployeeId").setValue(oEmployee.ID).setEditable(false);
-      //   oView.byId("fname").setValue(oEmployee.fname);
-      //   oView.byId("lname").setValue(oEmployee.lname);
-      //   oView.byId("desig").setValue(oEmployee.desig);
-      //   oView.byId("email").setValue(oEmployee.email);
-      //   oView.byId("skills").setValue(oEmployee.skills);
-      //   oView.byId("country").setSelectedKey(oEmployee.country_ID);
-      //   oView.byId("idstate").setValue(oEmployee.State);
-      //   oView.byId("idcity").setValue(oEmployee.city);
-      //   oView.byId("myDatePicker").setValue(oEmployee.doj);
-      //   oView.byId("yoe").setValue(oEmployee.yoe);
-      //   oView.byId("reportingPerson").setValue(oEmployee.reportingPerson);
-      //   oView.byId("phonenumber").setValue(oEmployee.Phno);
-
-      //   // Set gender based on oEmployee.gender
-      //   var oGenderRadioGroup = oView.byId("genderRadioGroup");
-      //   var oGenderModel = oView.getModel("MainModel");
-      //   var selectedGenderIndex =
-      //     oEmployee.gender.toLowerCase() === "male" ? 0 : 1;
-      //   oGenderModel.setProperty("/SelectedGenderIndex", selectedGenderIndex);
-      //   // Set the "Leave" dropdown based on oEmployee.leave
-      //   var oLeaveSelect = oView.byId("leave");
-      //   var leaveKey = oEmployee.leave ? "true" : "false";
-      //   oLeaveSelect.setSelectedKey(leaveKey);
-      // },
 
       onUpdate: function () {
         const oView = this.getView();
@@ -298,8 +302,7 @@ sap.ui.define(
       },
       onCancel: function (oEvent) {
         this.byId("openDialog").close();
-      }
-      
+      },
     });
   }
 );

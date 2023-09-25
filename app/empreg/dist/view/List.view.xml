@@ -12,25 +12,21 @@
         showNavButton="true"
         navButtonPress="onNavBack"
     >
-        <headerContent>
-            <Button icon="sap-icon://action" />
-        </headerContent>
-
         <customHeader>
             <Bar>
                 <contentLeft>
                     <Button
                         icon="sap-icon://nav-back"
                         press="onNavBack"
+                        class="myCustomButton"
                     />
                 </contentLeft>
 
                 <contentMiddle>
-                    <SearchField
-                        id="advancedSearch"
-                        width="50%"
-                        liveChange="onAdvancedSearch"
-                        placeholder="Search"
+                    <Image
+                        src="images/logo.png"
+                        width="135px"
+                        height="40px"
                     />
                 </contentMiddle>
 
@@ -38,10 +34,12 @@
                     <Button
                         icon="sap-icon://action"
                         press="onLogout"
+                        class="myCustomButton"
                     />
                 </contentRight>
             </Bar>
         </customHeader>
+
         <content>
             <Title
                 text="Extension Employees"
@@ -59,19 +57,42 @@
                     placeholder="Search"
                 />
                 <MultiComboBox
+                    change="handleChange"
                     selectionChange="handleSelectionChange"
-                    selectionFinish="handleSelectionFinish"
-                    showClearIcon="{MainModel>showClearIcon}"
                     width="350px"
-                    items="{
-                    path: 'MainModel>/Employees',
-                    sorter: { path: 'skills' }
-                   }"
+                    id="skillsMultiComboBox"
                 >
                     <core:Item
-                        key="{MainModel>ID}"
-                        text="{MainModel>skills}"
+                        key="HTML"
+                        text="HTML"
                     />
+
+                    <core:Item
+                        key="CSS"
+                        text="CSS"
+                    />
+
+                    <core:Item
+                        key="CAPM"
+                        text="CAPM"
+                    />
+
+                    <core:Item
+                        key="Cloud Application Programming Model"
+                        text="Cloud Application Programming Model"
+                    />
+
+                    <core:Item
+                        key="UI5"
+                        text="UI5"
+                    />
+
+                    <core:Item
+                        key="Fullstack"
+                        text="Fullstack"
+                    />
+
+                    <!-- Add more skills as needed -->
                 </MultiComboBox>
 
                 <ToolbarSpacer />
@@ -118,11 +139,19 @@
                     >
                         <HBox
                             alignItems="Center"
+                            class="flexContainer"
                             justifyContent="SpaceBetween"
                         >
-                            <HBox>
+                            <!-- First equal part -->
+                            <HBox width="45%">
                                 <Image
-                                    src="{ path: 'MainModel>ID', formatter: '.formatPhoto' }"
+                                    src="{
+                parts: [
+                    { path: 'MainModel>ID' },
+                    { path: 'MainModel>gender' }
+                ],
+                formatter: '.formatPhoto'
+            }"
                                     densityAware="false"
                                     inset="false"
                                     class="customIconSize"
@@ -134,7 +163,7 @@
                                     />
                                     <HBox alignItems="Center">
                                         <Text
-                                            text="Position "
+                                            text="Position :"
                                             class="custom-label"
                                         />
                                         <Text
@@ -142,10 +171,9 @@
                                             class="custom-designation"
                                         />
                                     </HBox>
-
                                     <HBox alignItems="Center">
                                         <Text
-                                            text="Work Since "
+                                            text="Date Of Joining :"
                                             class="custom-label"
                                         />
                                         <Text
@@ -155,34 +183,45 @@
                                     </HBox>
                                 </VBox>
                             </HBox>
-                            <VBox>
-                                <HBox alignItems="Center">
-                                    <Text
-                                        text="Phone"
-                                        class="custom-label"
+
+                            <!-- Second equal part -->
+                            <HBox
+                                width="45%"
+                                alignItems="Center"
+                            >
+                                <VBox alignItems="Start">
+                                    <!-- Use alignItems="Start" to align vertically at the start -->
+                                    <HBox alignItems="Center">
+                                        <Text
+                                            text="Phone Number :"
+                                            class="custom-label"
+                                        />
+                                        <Text
+                                            text="{MainModel>Phno}"
+                                            class="custom-designation"
+                                        />
+                                    </HBox>
+                                    <HBox alignItems="Center">
+                                        <Text
+                                            text="Email :"
+                                            class="custom-label"
+                                        />
+                                        <Text
+                                            text="{MainModel>email}"
+                                            class="custom-designation"
+                                        />
+                                    </HBox>
+                                </VBox>
+                            </HBox>
+                            <!-- Third equal part -->
+                            <HBox width="10%">
+                                <VBox alignItems="End">
+                                    <ObjectStatus
+                                        text="{= ${MainModel>leave} === 'Yes' ? 'Leave' : 'Working'}"
+                                        state="{= ${MainModel>leave} === 'Yes' ? 'Warning' : 'Success'}"
                                     />
-                                    <Text
-                                        text="{MainModel>Phno}"
-                                        class="custom-designation"
-                                    />
-                                </HBox>
-                                <HBox alignItems="Center">
-                                    <Text
-                                        text="Email"
-                                        class="custom-label"
-                                    />
-                                    <Text
-                                        text="{MainModel>email}"
-                                        class="custom-designation"
-                                    />
-                                </HBox>
-                            </VBox>
-                            <VBox alignItems="End">
-                                <ObjectStatus
-                                    text="{= ${MainModel>leave} === 'Yes' ? 'On Leave' : 'Working'}"
-                                    state="{= ${MainModel>leave} === 'Yes' ? 'Warning' : 'Success'}"
-                                />
-                            </VBox>
+                                </VBox>
+                            </HBox>
                         </HBox>
                     </CustomListItem>
                 </items>
